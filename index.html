@@ -76,10 +76,20 @@ alert(err.message);
  }
    
  }
- function listf(){ blockstack.listFiles((filename)=>{document.write(filename)
+ function listf()
+ { blockstack.listFiles((filename)=>{document.write(filename)
     return true
           })
   }
+ 
+  function listnew(){ var listoffiles='';
+  blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename;
+   //document.write(filename)
+    document.getElementById("note").innerHTML=listoffiles                                
+         return true}     )                                 
+                        
+  }
+ 
  function deletef(){
   var filetodelete=document.getElementById("posttodelete").value;
   let options = {
@@ -111,7 +121,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 1560</h2>
+<h2 align="center"> welcome.... clik login to enter the application 1561</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
@@ -136,6 +146,11 @@ catch(err){
    <input align="center" type="button" value="listfiles" id="listb" onclick="listf();" />           
   <br/> 
      <br/> 
+  <p> list of posts newww </p>              
+  <br/> 
+   <input align="center" type="button" value="listfiles" id="listb" onclick="listnew();" />           
+  <br/> 
+     <br/>                                                                                  
   <p> delete post  </p>              
   <br/>
    <input align="center" type="text"  id="posttodelete" " />
