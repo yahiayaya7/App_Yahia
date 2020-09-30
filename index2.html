@@ -106,10 +106,10 @@ alert(err.message);
  
  
  function listpub(){ var listoffiles=' ';
-                  document.getElementById("note").innerHTML='display outstanding'    
+                  document.getElementById("postpub").innerHTML='display outstanding'    
     blockstack.listFiles((filenamepub)=>{listoffiles=listoffiles+'<br/>'+filenamepub;        
    //document.write(filename)
-    document.getElementById("note").innerHTML=listoffiles  
+    document.getElementById("postpub").innerHTML=listoffiles  
          return true}     )                                             
   }
  
@@ -156,7 +156,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 68</h2>
+<h2 align="center"> welcome.... clik login to enter the application 70</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
