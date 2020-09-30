@@ -105,28 +105,12 @@ alert(err.message);
  } }
  
  
- function listpub(){ 
-                    let options = {
-  decrypt: false}
-                    
-  var listoffiles=' ';
-  var filepub=document.getElementById("note").innerHTML='display outstanding'
-  var s= blockstack.getFile(filepub, options);
-       
-                //  document.getElementById("note").innerHTML='display outstanding'    
-    blockstack.listFiles((filenamepub)=>{listoffiles=listoffiles+'<br/>'+s;        
-   //document.write(filename)
-    document.getElementById("note").innerHTML=listoffiles  
-         return true}     )                                             
-  }
- 
- 
-  function listpriv(){ var listoffiles=' ';
+ function listf(){ var listoffiles=' ';
                   document.getElementById("note").innerHTML='display outstanding'    
-  blockstack.listFiles((filenamepriv)=>{listoffiles=listoffiles+'<br/>'+filenamepriv;
+  blockstack.listFiles((filename)=>{listoffiles=listoffiles+'<br/>'+filename;
    //document.write(filename)
     document.getElementById("note").innerHTML=listoffiles                                
-         return true}     )                                             
+         return true}     )                                               
   }
  
  
@@ -163,7 +147,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 74</h2>
+<h2 align="center"> welcome.... clik login to enter the application 75</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
@@ -196,14 +180,9 @@ catch(err){
  <p id="posted"></p>
  
   <br/> 
-  <p> list of PUBLIC posts  </p>              
+  <p> list of posts  </p>              
    <br/>                                                                                  
-    <input align="center" type="button" value="listfilespub" id="listpub" onclick="listpub();" />  
- 
-   <br/> 
-  <p> list of PRIVATE posts  </p>              
-   <br/>                                                                                  
-    <input align="center" type="button" value="listfilespriv" id="listpriv" onclick="listpriv();" /> 
+    <input align="center" type="button" value="listfiles" id="listf" onclick="listf();" />  
  
   <br/> 
   <p id="note"> 00000 </p>
