@@ -109,6 +109,7 @@ alert(err.message);
   let options = {
   decrypt: false}
   var listoffiles=' ';
+   var filetoshow=document.getElementById("posttoshow").value;
    try{var s= await blockstack.getFile(filetoshow, options);
   document.getElementById("note").innerHTML='display outstanding'    
   blockstack.listFiles((filenamepub)=>{listoffiles=listoffiles+'<br/>'+s;
@@ -161,7 +162,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 66</h2>
+<h2 align="center"> welcome.... clik login to enter the application 67</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
