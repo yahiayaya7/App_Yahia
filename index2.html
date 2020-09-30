@@ -96,7 +96,7 @@ alert(err.message);
   {let options = {
   decrypt: true}
   
-  //var filetoshow=document.getElementById("posttoshow").value;
+  var filetoshow=document.getElementById("posttoshow").value;
    try{var t= await blockstack.getFile(filetoshow, options);
   document.getElementById("posted").innerHTML=t}
    
@@ -105,7 +105,10 @@ alert(err.message);
  } }
  
  
- function listpub(){ var listoffiles=' ';
+ function listpub(){ let options = {
+  decrypt: false}
+  
+  var listoffiles=' ';
                   document.getElementById("note").innerHTML='display outstanding'    
   blockstack.listFiles((filenamepub)=>{listoffiles=listoffiles+'<br/>'+filenamepub;
    //document.write(filename)
@@ -114,7 +117,9 @@ alert(err.message);
   }
  
  
-  function listpriv(){ var listoffiles=' ';
+  function listpriv(){ let options = {
+  decrypt: true}
+  var listoffiles=' ';
                   document.getElementById("note").innerHTML='display outstanding'    
   blockstack.listFiles((filenamepriv)=>{listoffiles=listoffiles+'<br/>'+filenamepriv;
    //document.write(filename)
@@ -133,13 +138,30 @@ alert(err.message);
 alert(err.message);}
  }
  
-
+ async function showof(){ 
+  
+  var p=document.getElementById("posttoshowo").value;
+  var id=document.getElementById("idother").value;
+  try{var t= await blockstack.getFile(p, { username: id, decrypt: false });
+   document.getElementById("posteo").innerHTML=t;
+        }
+    catch(err){
+     alert(err.message);}
+}
+ function affiche(){
+  let options = {
+  encrypt: false
+}
+try{document.getElementById("note").innerHTML='bbbb';}
+catch(err){
+     alert(err.message);}
+ }
  
 </script>
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 64</h2>
+<h2 align="center"> welcome.... clik login to enter the application 65</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
