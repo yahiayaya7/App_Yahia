@@ -105,21 +105,21 @@ alert(err.message);
  } }
  
  
- function listpub(){ let options = {
+ function listpub(){ 
+  let options = {
   decrypt: false}
-  
   var listoffiles=' ';
-                  document.getElementById("note").innerHTML='display outstanding'    
-  blockstack.listFiles((filenamepub)=>{listoffiles=listoffiles+'<br/>'+filenamepub;
+   try{var s= await blockstack.getFile(filetoshow, options);
+  document.getElementById("note").innerHTML='display outstanding'    
+  blockstack.listFiles((filenamepub)=>{listoffiles=listoffiles+'<br/>'+s;
+      }           
    //document.write(filename)
     document.getElementById("note").innerHTML=listoffiles                           
          return true}     )                                             
   }
  
  
-  function listpriv(){ let options = {
-  decrypt: true}
-  var listoffiles=' ';
+  function listpriv(){ var listoffiles=' ';
                   document.getElementById("note").innerHTML='display outstanding'    
   blockstack.listFiles((filenamepriv)=>{listoffiles=listoffiles+'<br/>'+filenamepriv;
    //document.write(filename)
@@ -161,7 +161,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 65</h2>
+<h2 align="center"> welcome.... clik login to enter the application 66</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
