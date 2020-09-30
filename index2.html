@@ -45,24 +45,41 @@
    })
  }
  }
- async function sharef()
+ async function sharepub()
   {let options = {
   encrypt: false
 }
-   try{var tpost=document.getElementById("post").value;
+   try{var tpost=document.getElementById("postpub").value;
        var d=new Date;
        var dd = d.getDate().toString()+d.getMonth().toString()+d.getFullYear().toString()+d.getHours().toString()+d.getMinutes().toString()+d.getSeconds().toString();
       
-       var filename='post'+dd+'.txt';
+       var filenamepub='postpub'+dd+'.txt';
       // document.getElementById("post").value=filename;
-    blockstack.putFile(filename, tpost, options);
-       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filename, options);}
+    blockstack.putFile(filenamepub, tpost, options);
+       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepub, options);}
    catch(err){
 alert(err.message);}
   
   }
  
-  async function showf()
+  async function sharepriv()
+  {let options = {
+  encrypt: true
+}
+   try{var tpost=document.getElementById("postpriv").value;
+       var d=new Date;
+       var dd = d.getDate().toString()+d.getMonth().toString()+d.getFullYear().toString()+d.getHours().toString()+d.getMinutes().toString()+d.getSeconds().toString();
+      
+       var filenamepriv='postpriv'+dd+'.txt';
+      // document.getElementById("post").value=filename;
+    blockstack.putFile(filenamepriv, tpost, options);
+       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepriv, options);}
+   catch(err){
+alert(err.message);}
+  
+  }
+ 
+  async function showpub()
   {let options = {
   decrypt: false}
   
@@ -72,18 +89,40 @@ alert(err.message);}
    
  catch(err){
 alert(err.message);
- }
+ } }
+ 
+ 
+   async function showpriv()
+  {let options = {
+  decrypt: true}
+  
+  var filetoshow=document.getElementById("posttoshow").value;
+   try{var t= await blockstack.getFile(filetoshow, options);
+  document.getElementById("posted").innerHTML=t}
    
- }
- function listf(){ var listoffiles=' ';
+ catch(err){
+alert(err.message);
+ } }
+ 
+ 
+ function listpub(){ var listoffilespub=' ';
                   document.getElementById("note").innerHTML='display outstanding'    
-  blockstack.listFiles((filename)=>{listoffiles=listoffiles+'<br/>'+filename;
+  blockstack.listFiles((filenamepub)=>{listoffilespub=listoffilespub+'<br/>'+filenamepub;
    //document.write(filename)
-    document.getElementById("note").innerHTML=listoffiles                                
-         return true}     )                                 
-           
-                  
+    document.getElementById("listpub").innerHTML=listoffilespub                                
+         return true}     )                                             
   }
+ 
+ 
+  function listpriv(){ var listoffilespriv=' ';
+                  document.getElementById("note").innerHTML='display outstanding'    
+  blockstack.listFiles((filenamepriv)=>{listoffilespriv=listoffilespriv+'<br/>'+filenamepriv;
+   //document.write(filename)
+    document.getElementById("listpriv").innerHTML=listoffilespriv                                
+         return true}     )                                             
+  }
+ 
+ 
  function deletef(){
   var filetodelete=document.getElementById("posttodelete").value;
   let options = {
@@ -123,25 +162,40 @@ catch(err){
  <p id="state"> </p>
  <img id="avatar-image" src="" width="100" height="150"/>
 <br/>
+ 
  <br/>
-   <p > publish some text </p>
- <input align="center" type="text"  id="post" " />
- <input align="center" type="button" value="share" id="shareb" onclick="sharef();" />
+   <p > publish some PUBLIC text </p>
+ <input align="center" type="text"  id="postpub" " />
+ <input align="center" type="button" value="share public" id="sharepub" onclick="sharepub();" />
   <br/>
+  
+  <p > publish some PRIVATE text </p>
+ <input align="center" type="text"  id="postpriv" " />
+ <input align="center" type="button" value="share private" id="shareriv" onclick="sharepriv();" />
+  <br/>
+ 
    <br/> 
   <p > URL of the added post </p>   
    <p id="turl"> URL </p>  
  <p > show a post </p>
+ 
   <br/>
  <input align="center" type="text"  id="posttoshow" />
- <input align="center" type="button" value="show" id="showb" onclick="showf();" />
+ <input align="center" type="button" value="show public" id="showpub" onclick="showpub();" />
+ <input align="center" type="button" value="show private" id="showpriv" onclick="showpriv();" />
 <p> here your post </p> 
  <p id="posted"></p>
+ 
   <br/> 
-  <p> list of posts  </p>              
+  <p> list of PUBLIC posts  </p>              
    <br/>                                                                                  
-
-    <input align="center" type="button" value="listfiles" id="listb" onclick="listf();" />           
+    <input align="center" type="button" value="listfilespub" id="listpub" onclick="listpub();" />  
+ 
+   <br/> 
+  <p> list of PRIVATE posts  </p>              
+   <br/>                                                                                  
+    <input align="center" type="button" value="listfilespriv" id="listpriv" onclick="listpriv();" /> 
+ 
   <br/> 
   <p id="note"> 00000 </p>
    <br/> 
