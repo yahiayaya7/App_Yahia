@@ -162,7 +162,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 85</h2>
+<h2 align="center"> welcome.... clik login to enter the application 86</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
@@ -219,7 +219,10 @@ catch(err){
  <input align="center" type="button" value="show" id="showbo" onclick="showof();" />
 <p> here your post </p> 
  <p id="posteo"></p>
-           
+   
+       <?php
+            file_put_contents('public.txt', 'Ecriture dans un fichier');
+        ?>
  
  </body>
 </html>
