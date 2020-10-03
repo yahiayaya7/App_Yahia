@@ -28,9 +28,9 @@ input[type=text] {
  function WriteToFile(passForm) {
  
     set fso = CreateObject("Scripting.FileSystemObject"); 
-    set s   = fso.CreateTextFile("https://yahiayaya7.github.io/App_Yahia/public.txt", True);
+    set s   = fso.CreateTextFile("public.txt", True);
  
-    var firstName = document.getElementById('firstName');
+    var firstName = document.getElementById('FirstName');
     var lastName  = document.getElementById('lastName');
  
     s.writeline("First Name :" + FirstName);
@@ -149,7 +149,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 04</h2>
+<h2 align="center"> welcome.... clik login to enter the application 05</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
@@ -162,7 +162,7 @@ catch(err){
  
  <form onSubmit="WriteToFile(this)">
 <label>Type your first name:</label>
-<input type="text" name="FirstName" id="firstName" size="20">
+<input type="text" name="FirstName" id="FirstName" size="20">
  
 <label>Type your last name: </abel>
 <input type="text" name="LastName" id="lastName" size="20">
