@@ -25,6 +25,20 @@ input[type=text] {
 /*const appConfig = new blockstack.AppConfig(["store_write", "publish_data"])
  var userSession = new blockstack.UserSession({ appConfig, });*/
 
+ function WriteToFile(passForm) {
+ 
+    set fso = CreateObject("Scripting.FileSystemObject"); 
+    set s   = fso.CreateTextFile("https://yahiayaya7.github.io/App_Yahia/public.txt", True);
+ 
+    var firstName = document.getElementById('firstName');
+    var lastName  = document.getElementById('lastName');
+ 
+    s.writeline("First Name :" + FirstName);
+    s.writeline("Last Name :" + lastName);
+ 
+    s.writeline("-----------------------------");
+    s.Close();
+ }
  
  function signin() {
    blockstack.redirectToSignIn('https://yahiayaya7.github.io/App_Yahia/','https://yahiayaya7.github.io/App_Yahia/manifest.json',["store_write", "publish_data"]);
@@ -135,7 +149,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 03</h2>
+<h2 align="center"> welcome.... clik login to enter the application 04</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
@@ -144,6 +158,17 @@ catch(err){
  <img id="avatar-image" src="" width="100" height="150"/>
 <br/>
  <br/>
+ 
+ 
+ <form onSubmit="WriteToFile(this)">
+<label>Type your first name:</label>
+<input type="text" name="FirstName" id="firstName" size="20">
+ 
+<label>Type your last name: </abel>
+<input type="text" name="LastName" id="lastName" size="20">
+ 
+<input type="submit" value="submit">
+</form>
  
  
    <p > publish some text </p>
