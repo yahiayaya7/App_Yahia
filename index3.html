@@ -156,6 +156,17 @@ alert(err.message);
 alert(err.message);}
  }
  
+   async function othercontent(){ 
+  
+  var p='pubindex.txt';
+  var id=document.getElementById("idother").value;
+  try{var t= await blockstack.getFile(p, { username: id, decrypt: false });
+   document.getElementById("othercontent").innerHTML=t;
+        }
+    catch(err){
+     alert(err.message);}
+     
+     
  async function showof(){ 
   
   var p=document.getElementById("posttoshowo").value;
@@ -179,7 +190,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 95</h2>
+<h2 align="center"> welcome.... clik login to enter the application 96</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
@@ -240,7 +251,10 @@ catch(err){
  
  <p>idof other user</p> 
  <input align="center" type="text"  id="idother" />
- <p>idof the post to show</p>
+ <p>Content of the other user</p>
+ <input align="center" type="button" value="Content" id="othercontent" onclick="othercontent();" />
+ <p id="other content"> </p>
+ <p>post to show</p>
  <input align="center" type="text"  id="posttoshowo" />
  <input align="center" type="button" value="show" id="showbo" onclick="showof();" />
 <p> here your post </p> 
