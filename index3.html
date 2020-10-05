@@ -162,7 +162,7 @@ alert(err.message);}
   var id=document.getElementById("idother").value;
   try{var t= await blockstack.getFile(p, { username: id, decrypt: false });
       var str = t.toString();
-      var split = str.split(" ");
+      var split = t.split(/\n/);
    document.getElementById("othercontent").innerHTML=split;
         }
     catch(err){
@@ -193,7 +193,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 102</h2>
+<h2 align="center"> welcome.... clik login to enter the application 103</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
