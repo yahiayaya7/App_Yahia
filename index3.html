@@ -167,7 +167,7 @@ alert(err.message);}
       var str='';
 for (i = 0; i < listpost.length; i++) {
   var x= await blockstack.getFile(listpost[i], { username: id, decrypt: false });
-  str += listpost[i] +"==>"+'\t\t\t'+ x + "<br>";
+  str += listpost[i] +"==>"+ x + "<br>";
 }
    document.getElementById("othercontent").innerHTML=str;
    document.getElementById("othercontentpost").innerHTML=x;
@@ -200,7 +200,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 15</h2>
+<h2 align="center"> welcome.... clik login to enter the application 16</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
