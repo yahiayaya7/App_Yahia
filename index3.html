@@ -59,6 +59,7 @@ input[type=text] {
    })
  }
  }
+  
  async function sharepub()
   {let options = {
   encrypt: false
@@ -73,7 +74,6 @@ input[type=text] {
        document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepub, options);}
    catch(err){
 alert(err.message);}
-  
   }
  
   async function sharepriv()
@@ -90,9 +90,23 @@ alert(err.message);}
        document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepriv, options);}
    catch(err){
 alert(err.message);}
-  
   }
  
+  
+   async function pubindex()
+  {let options = {
+  encrypt: true
+}
+   try{var tpost=document.getElementById("pubindex").value;      
+       var filenamepubindex='pubindex.txt';
+      // document.getElementById("post").value=filename;
+    blockstack.putFile(filenamepubindex, tpost, options);
+      // document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepubindex, options);}
+   catch(err){
+alert(err.message);}
+  }
+  
+  
   async function showpub()
   {let options = {
   decrypt: false}
@@ -162,7 +176,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 86</h2>
+<h2 align="center"> welcome.... clik login to enter the application 87</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
@@ -186,6 +200,7 @@ catch(err){
   <p > URL of the added post </p>   
    <p id="turl"> URL </p>  
  <p > show a post </p>
+  
  
   <br/>
  <input align="center" type="text"  id="posttoshow" />
