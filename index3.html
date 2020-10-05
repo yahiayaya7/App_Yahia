@@ -95,7 +95,7 @@ alert(err.message);}
   
    async function pubindex()
   {let options = {
-  encrypt: true
+  encrypt: false
 }
    try{var tpost=document.getElementById("pubindex").value;      
        var filenamepubindex='pubindex.txt';
@@ -177,7 +177,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 90</h2>
+<h2 align="center"> welcome.... clik login to enter the application 91</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
@@ -204,7 +204,7 @@ catch(err){
   
    <br/> 
   <p> add to pubindex.txt </p>
- <input align="center" type="text"  id="pubindex" " />
+ <textarea align="center" type="text"  id="pubindex" placeholder="Add your public posts" rows="5"> </textarea>
  <input align="center" type="button" value="add to pubindex" id="pubindex" onclick="pubindex();" />
   <p id="purl">URL : </p>
   <br/>
