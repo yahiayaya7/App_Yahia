@@ -162,15 +162,15 @@ alert(err.message);}
   var id=document.getElementById("idother").value;
   try{var t= await blockstack.getFile(p, { username: id, decrypt: false });
       //var str = t.toString();
-      var split = t.split(/\n/);
+      var listpost = t.split(/\n/);
       var i;
       var str='';
-for (i = 0; i < split.length; i++) {
-  str += split[i] + "<br>";
-  var x= await blockstack.getFile(split[0], { username: id, decrypt: false });
+for (i = 0; i < listpost.length; i++) {
+  var x= await blockstack.getFile(listpost[i], { username: id, decrypt: false });
+  str += listpost[i] +"\t"+ x + "<br>";
 }
-   document.getElementById("othercontent").innerHTML=str + "<br>";
-   document.getElementById("othercontent").innerHTML=x;
+   document.getElementById("othercontent").innerHTML=str;
+   document.getElementById("othercontentpost").innerHTML=x;
         }
     catch(err){
      alert(err.message);}
@@ -200,7 +200,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 12</h2>
+<h2 align="center"> welcome.... clik login to enter the application 13</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
