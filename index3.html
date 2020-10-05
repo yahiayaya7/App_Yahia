@@ -1,21 +1,225 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <title>Cours PHP & MySQL</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="cours.css">
-    </head>
-    
-    <body>
-        <h1>Titre principal</h1>
-        <?php
-            echo "Chaine de caracteres";
+<head>
+<title> fisrt app on blockstack</title>
 
-echo (1+2)*87;
-print("Chaine de caracteres");
+  <style>
+input[type=text] {
+  border: 2px solid red;
+  border-radius: 4px;
+ 
+  width: 30%;
+  height: 15px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+   background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+  </style>
+ 
+<link rel="manifest" href="manifest.json"/>
+<script src="blockstack.js" >
+</script>
 
-print ((1+2)*87);
-        ?>
-        <p>Un paragraphe</p>
-    </body>
+<script language = "javascript" type = "text/javascript"  >
+/*const appConfig = new blockstack.AppConfig(["store_write", "publish_data"])
+ var userSession = new blockstack.UserSession({ appConfig, });*/
+
+ 
+ function signin() {
+   blockstack.redirectToSignIn('https://yahiayaya7.github.io/App_Yahia/index2.html','https://yahiayaya7.github.io/App_Yahia/manifest.json',["store_write", "publish_data"]);
+  //blockstack.UserSession.appConfig=appConfig;
+  
+ }
+ function sigout() {
+   blockstack.signUserOut(window.location.origin)
+ 
+ }
+  function showProfile(profile) {
+   var person = new blockstack.Person(profile)
+   
+   document.getElementById("nom").innerHTML =person.name();
+   document.getElementById("avatar-image").setAttribute('src', person.avatarUrl());
+   //document.getElementById('section-1').style.display = 'none'
+   //document.getElementById('section-2').style.display = 'block'
+ }
+
+ function issigin()
+ { if (blockstack.isUserSignedIn()) { document.getElementById("state").innerHTML ='signed ok';}
+  else{ document.getElementById("state").innerHTML ='not signed'; }
+  if (blockstack.isUserSignedIn()) {
+  
+  const userData = blockstack.loadUserData()
+   showProfile(userData.profile)
+  
+   document.getElementById("state").innerHTML =userData.username;
+ } else if (blockstack.isSignInPending()) {
+   blockstack.handlePendingSignIn()
+   .then(userData => {
+     showProfile(userData.profile)
+   })
+ }
+ }
+ async function sharepub()
+  {let options = {
+  encrypt: false
+}
+   try{var tpost=document.getElementById("postpub").value;
+       var d=new Date;
+       var dd = d.getDate().toString()+d.getMonth().toString()+d.getFullYear().toString()+d.getHours().toString()+d.getMinutes().toString()+d.getSeconds().toString();
+      
+       var filenamepub='postpub'+dd+'.txt';
+      // document.getElementById("post").value=filename;
+    blockstack.putFile(filenamepub, tpost, options);
+       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepub, options);}
+   catch(err){
+alert(err.message);}
+  
+  }
+ 
+  async function sharepriv()
+  {let options = {
+  encrypt: true
+}
+   try{var tpost=document.getElementById("postpriv").value;
+       var d=new Date;
+       var dd = d.getDate().toString()+d.getMonth().toString()+d.getFullYear().toString()+d.getHours().toString()+d.getMinutes().toString()+d.getSeconds().toString();
+      
+       var filenamepriv='postpriv'+dd+'.txt';
+      // document.getElementById("post").value=filename;
+    blockstack.putFile(filenamepriv, tpost, options);
+       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepriv, options);}
+   catch(err){
+alert(err.message);}
+  
+  }
+ 
+  async function showpub()
+  {let options = {
+  decrypt: false}
+  
+  var filetoshow=document.getElementById("posttoshow").value;
+   try{var t= await blockstack.getFile(filetoshow, options);
+  document.getElementById("posted").innerHTML=t}
+   
+ catch(err){
+alert(err.message);
+ } }
+ 
+ 
+   async function showpriv()
+  {let options = {
+  decrypt: true}
+  
+  var filetoshow=document.getElementById("posttoshow").value;
+   try{var t= await blockstack.getFile(filetoshow, options);
+  document.getElementById("posted").innerHTML=t}
+   
+ catch(err){
+alert(err.message);
+ } }
+ 
+ 
+ function listf(){ var listoffiles=' ';
+                  document.getElementById("note").innerHTML='display outstanding'    
+  blockstack.listFiles((filename)=>{listoffiles=listoffiles+'<br/>'+filename;
+   //document.write(filename)
+   
+    document.getElementById("note").innerHTML=listoffiles
+         return true}     )                                               
+  }
+ 
+ 
+ function deletef(){
+  var filetodelete=document.getElementById("posttodelete").value;
+  let options = {
+  wasSigned: false
+}
+ try{ blockstack.deleteFile(filetodelete,options)}
+ catch(err){
+alert(err.message);}
+ }
+ 
+ async function showof(){ 
+  
+  var p=document.getElementById("posttoshowo").value;
+  var id=document.getElementById("idother").value;
+  try{var t= await blockstack.getFile(p, { username: id, decrypt: false });
+   document.getElementById("posteo").innerHTML=t;
+        }
+    catch(err){
+     alert(err.message);}
+}
+ function affiche(){
+  let options = {
+  encrypt: false
+}
+try{document.getElementById("note").innerHTML='bbbb';}
+catch(err){
+     alert(err.message);}
+ }
+ 
+</script>
+</head>
+<body>
+
+<h2 align="center"> welcome.... clik login to enter the application 86</h2>
+<input align="center" type="button" value="login" id="sig" onclick="signin();" />
+ <p id="nom"> </p>
+ <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
+ <input align="center" type="button" value="isgned" id="issigned" onclick="issigin();" />
+ <p id="state"> </p>
+ <img id="avatar-image" src="" width="100" height="150"/>
+<br/>
+ 
+ <br/>
+   <p > publish some PUBLIC text </p>
+ <input align="center" type="text"  id="postpub" " />
+ <input align="center" type="button" value="share public" id="sharepub" onclick="sharepub();" />
+  <br/>
+  
+  <p > publish some PRIVATE text </p>
+ <input align="center" type="text"  id="postpriv" " />
+ <input align="center" type="button" value="share private" id="shareriv" onclick="sharepriv();" />
+  <br/>
+ 
+   <br/> 
+  <p > URL of the added post </p>   
+   <p id="turl"> URL </p>  
+ <p > show a post </p>
+ 
+  <br/>
+ <input align="center" type="text"  id="posttoshow" />
+ <input align="center" type="button" value="show public" id="showpub" onclick="showpub();" />
+ <input align="center" type="button" value="show private" id="showpriv" onclick="showpriv();" />
+<p> here your post </p> 
+ <p id="posted"></p>
+ 
+  <br/> 
+  <p> list of posts  </p>              
+   <br/>                                                                                  
+    <input align="center" type="button" value="listfiles" id="listf" onclick="listf();" />  
+ 
+ 
+  <br/> 
+  <p id="note"> 00000 </p>
+   <br/> 
+     <br/> 
+  <p> delete post  </p>              
+  <br/>
+   <input align="center" type="text"  id="posttodelete" " />
+   <input align="center" type="button" value="delete" id="deleteb" onclick="deletef();" />           
+  <br/>                                                                                  
+<p > show a postof other user </p>
+  <br/>
+ 
+ <p>idof other user</p> 
+ <input align="center" type="text"  id="idother" />
+ <p>idof the post to show</p>
+ <input align="center" type="text"  id="posttoshowo" />
+ <input align="center" type="button" value="show" id="showbo" onclick="showof();" />
+<p> here your post </p> 
+ <p id="posteo"></p>
+   
+ 
+ </body>
 </html>
