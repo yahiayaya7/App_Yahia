@@ -101,7 +101,7 @@ alert(err.message);}
        var filenamepubindex='pubindex.txt';
       // document.getElementById("post").value=filename;
     blockstack.putFile(filenamepubindex, tpost, options);
-      // document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepubindex, options);
+       document.getElementById("purl").innerHTML=await blockstack.getFileUrl(filenamepubindex, options);
        }
    catch(err){
 alert(err.message);}
@@ -177,7 +177,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 89</h2>
+<h2 align="center"> welcome.... clik login to enter the application 90</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
@@ -206,9 +206,12 @@ catch(err){
   <p> add to pubindex.txt </p>
  <input align="center" type="text"  id="pubindex" " />
  <input align="center" type="button" value="add to pubindex" id="pubindex" onclick="pubindex();" />
+  <p id="purl">URL : </p>
+  <br/>
   <br/>
  
   <br/>
+    <p > Show a post </p> 
  <input align="center" type="text"  id="posttoshow" />
  <input align="center" type="button" value="show public" id="showpub" onclick="showpub();" />
  <input align="center" type="button" value="show private" id="showpriv" onclick="showpriv();" />
