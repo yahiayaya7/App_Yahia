@@ -158,7 +158,7 @@ alert(err.message);}
  
    async function othercontent(){ 
      
-  var p='pubindex.txt';
+  var p=document.getElementById("posttoshowo").value;
   var id=document.getElementById("idother").value;
   try{var t= await blockstack.getFile(p, { username: id, decrypt: false });
    document.getElementById("othercontent").innerHTML=t;
@@ -191,7 +191,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 97</h2>
+<h2 align="center"> welcome.... clik login to enter the application 98</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
