@@ -157,7 +157,7 @@ alert(err.message);}  */
   }
   
   
-function global(){ var listoffiles='list';
+function fct(){ var listoffiles='list';
   blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename;
    //document.write(filename)
     document.getElementById("global").innerHTML=listoffiles                                
@@ -220,7 +220,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 48</h2>
+<h2 align="center"> welcome.... clik login to enter the application 49</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
@@ -265,7 +265,7 @@ catch(err){
     <br/> 
   <p> GOOOBAL  </p>              
    <br/>                                                                                  
-    <input align="center" type="button" value="global" id="global" onclick="global();" />  
+    <input align="center" type="button" value="global" id="listf" onclick="fct();" />  
   <br/> 
   <p id="global"> ...LIST... </p>
    <br/> 
