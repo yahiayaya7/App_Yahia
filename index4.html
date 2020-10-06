@@ -88,9 +88,9 @@ for (i = 0; i < listpost.length; i++) {
           strr = strr + listpost[i] + '</br>';
           }
 }   
-    var pubindex = strr + '</br>' + filenamepub; 
+    var pubindex = strr + filenamepub; 
     blockstack.putFile(filenamepubindex, pubindex, {encrypt: false });
-    document.getElementById("global").innerHTML=pubindex                       
+    //document.getElementById("global").innerHTML=pubindex                       
          return true})
    //****************************************************************************
   }
@@ -109,6 +109,27 @@ for (i = 0; i < listpost.length; i++) {
        document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepriv, options);}
    catch(err){
 alert(err.message);}
+   
+     //***************************************************************************
+                 var listoffiles='';
+                 var filenameprivindex='privindex.txt';
+  blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename+'X';
+   var str = listoffiles.toString();
+      var listpost = str.split('X');
+      var i;
+      var j;
+      var strr='';
+for (i = 0; i < listpost.length; i++) {
+  var post = listpost[i];
+        if (post[5] =='r') {
+          strr = strr + listpost[i] + '</br>';
+          }
+}   
+    var privindex = strr + filenamepriv; 
+    blockstack.putFile(filenameprivindex, privindex, {encrypt: true });
+    //document.getElementById("global").innerHTML=pubindex                       
+         return true})
+   //****************************************************************************
   }
  
   
@@ -253,7 +274,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 64</h2>
+<h2 align="center"> welcome.... clik login to enter the application 65</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
