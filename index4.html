@@ -52,10 +52,6 @@ input[type=text] {
    showProfile(userData.profile)
   
    document.getElementById("state").innerHTML =userData.username;
-    
-   var person = new blockstack.Person();
-   document.getElementById("idn").innerHTML =person.name();
-    
  } else if (blockstack.isSignInPending()) {
    blockstack.handlePendingSignIn()
    .then(userData => {
@@ -145,7 +141,18 @@ alert(err.message);
    //document.write(filename)
    
     document.getElementById("note").innerHTML=listoffiles
-         return true}     )                                               
+         return true}     )  
+          
+                  
+      try{     
+       var filenamepubindex='pubindex.txt';
+      // document.getElementById("post").value=filename;
+    blockstack.putFile(filenamepubindex, listoffiles, encrypt: false);
+       //document.getElementById("purl").innerHTML=await blockstack.getFileUrl(filenamepubindex, options);
+       }
+   catch(err){
+alert(err.message);}
+                  
   }
  
  
@@ -203,11 +210,10 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 31</h2>
+<h2 align="center"> welcome.... clik login to enter the application 32</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
-  <p id="idn"> <script>issigin();</script> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
  <input align="center" type="button" value="isgned" id="issigned" onclick="issigin();" />
  <p id="state"> </p>
