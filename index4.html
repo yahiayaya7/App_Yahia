@@ -51,7 +51,7 @@ input[type=text] {
   const userData = blockstack.loadUserData()
    showProfile(userData.profile)
   
-   document.getElementById("state").innerHTML =userData.username;
+   document.getElementById("username").innerHTML =userData.username;
  } else if (blockstack.isSignInPending()) {
    blockstack.handlePendingSignIn()
    .then(userData => {
@@ -199,12 +199,12 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 20</h2>
+<h2 align="center"> welcome.... clik login to enter the application 21</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
  <input align="center" type="button" value="isgned" id="issigned" onclick="issigin();" />
-  <p id="state"><script>issigin();</script></p>
+  <p id="username"><script>issigin();</script></p>
  <p id="state"> </p>
  <img id="avatar-image" src="" width="100" height="150"/>
 <br/>
