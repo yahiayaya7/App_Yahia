@@ -139,12 +139,9 @@ alert(err.message);
                   document.getElementById("note").innerHTML='display outstanding'    
   blockstack.listFiles((filename)=>{listoffiles=listoffiles+'<br/>'+filename;
    //document.write(filename)
-   
-    document.getElementById("note").innerHTML=listoffiles
-         return true}     )  
-          
+                                    
       
-       {let options = {encrypt: false}            
+      {let options = {encrypt: false}            
       try{     
        var filenamepubindex='pubindex.txt';
       // document.getElementById("post").value=filename;
@@ -153,6 +150,14 @@ alert(err.message);
        }
    catch(err){
 alert(err.message);}
+            
+            
+   
+    document.getElementById("note").innerHTML=listoffiles
+         return true}     )  
+          
+      
+
                   
   }
  
@@ -211,7 +216,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 33</h2>
+<h2 align="center"> welcome.... clik login to enter the application 34</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
