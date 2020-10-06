@@ -88,8 +88,9 @@ for (i = 0; i < listpost.length; i++) {
           strr = strr + listpost[i] + '</br>';
           }
 }   
-    blockstack.putFile(filenamepubindex, strr, {encrypt: false });
-    document.getElementById("global").innerHTML=strr                        
+    var pubindex = strr + '</br>' + filenamepub; 
+    blockstack.putFile(filenamepubindex, pubindex, {encrypt: false });
+    document.getElementById("global").innerHTML=pubindex                       
          return true})
    //****************************************************************************
   }
@@ -252,7 +253,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 63</h2>
+<h2 align="center"> welcome.... clik login to enter the application 64</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
