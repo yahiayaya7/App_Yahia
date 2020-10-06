@@ -85,7 +85,7 @@ alert(err.message);}
 for (i = 0; i < listpost.length; i++) {
   var post = listpost[i];
         if (post[5] =='u') {
-          strr = strr + listpost[i] + '</br>';
+          strr = strr + listpost[i] + 'X';
           }
 }   
     var pubindex = strr + filenamepub; 
@@ -236,7 +236,8 @@ alert(err.message);}
   var id=document.getElementById("idother").value;
   try{var t= await blockstack.getFile(p, { username: id, decrypt: false });
       //var str = t.toString();
-      var listpost = t.split(/\n/);
+      var listpost = t.split('X');
+      //var listpost = t.split(/\n/);
       var i;
       var str='';
 for (i = 0; i < listpost.length; i++) {
