@@ -23,7 +23,7 @@ input[type=text] {
 <script language = "javascript" type = "text/javascript"  >
 /*const appConfig = new blockstack.AppConfig(["store_write", "publish_data"])
  var userSession = new blockstack.UserSession({ appConfig, });*/
-
+var global='';
  
  function signin() {
    blockstack.redirectToSignIn('https://yahiayaya7.github.io/App_Yahia/index4.html','https://yahiayaya7.github.io/App_Yahia/manifest.json',["store_write", "publish_data"]);
@@ -139,17 +139,17 @@ alert(err.message);
                   document.getElementById("note").innerHTML='display outstanding'    
   blockstack.listFiles((filename)=>{listoffiles=listoffiles+'<br/>'+filename;
    //document.write(filename)
-                                    
+   this.global = listoffiles;                            
       
 
             
             
    
     document.getElementById("note").innerHTML=listoffiles
-         return true}     );
+         return true}     )
                   
           
-       {let options = {encrypt: false}            
+     /*  {let options = {encrypt: false}            
       try{     var li = 'yayaya';
        var filenamepubindex='pubindex.txt';
       // document.getElementById("post").value=filename;
@@ -157,7 +157,7 @@ alert(err.message);
        //document.getElementById("purl").innerHTML=await blockstack.getFileUrl(filenamepubindex, options);
        }
    catch(err){
-alert(err.message);}
+alert(err.message);}  */
 
                   
   }
@@ -217,7 +217,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 37</h2>
+<h2 align="center"> welcome.... clik login to enter the application 38</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
