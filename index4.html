@@ -160,11 +160,11 @@ alert(err.message);}  */
 function fct(){ var listoffiles='';
                
   blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename;
+   var str = listoffiles.toString();
    //document.write(filename)
-    //document.getElementById("global").innerHTML=listoffiles                                
-         return true});
-    var str = listoffiles.toString();
-    document.getElementById("global").innerHTML=str 
+    document.getElementById("global").innerHTML=str                              
+         return true})
+  
     }
  
  
@@ -222,7 +222,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 50</h2>
+<h2 align="center"> welcome.... clik login to enter the application 51</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
