@@ -164,8 +164,8 @@ alert(err.message);}  */
   
   
   function global(){
-    var v=this.global;
-    document.getElementById("global").innerHTML=v
+  
+    document.getElementById("global").innerHTML=global
     
     }
  
@@ -224,12 +224,12 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 42</h2>
+<h2 align="center"> welcome.... clik login to enter the application 43</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
   <input align="center" type="button" value="global" id="global" onclick="global();" />
-  <p id="global"> </p>
+  <p id="global"> <script>listf();global();</script> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
  <input align="center" type="button" value="isgned" id="issigned" onclick="issigin();" />
  <p id="state"> </p>
