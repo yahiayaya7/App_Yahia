@@ -164,16 +164,22 @@ function fct(){
                
   blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename+'</br>';
    var str = listoffiles.toString();
-    
+      var listpost = str.split(/\n/);
+      var i;
+      var strr='';
+/*for (i = 0; i < listpost.length; i++) {
+
+  strr += listpost[i] +"==>"+ "<br>";
+}*/
                
          
       // document.getElementById("post").value=filename;
-    blockstack.putFile(filenamepubindex, str, {encrypt: false });
+    blockstack.putFile(filenamepubindex, strr, {encrypt: false });
        //document.getElementById("purl").innerHTML=await blockstack.getFileUrl(filenamepubindex, options);
    
      
    //document.write(filename)
-    document.getElementById("global").innerHTML=str                              
+    document.getElementById("global").innerHTML=strr                              
          return true})
   
     }
@@ -233,7 +239,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 58</h2>
+<h2 align="center"> welcome.... clik login to enter the application 56</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
