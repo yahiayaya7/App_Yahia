@@ -271,8 +271,7 @@ for (i = 0; i < listpost.length; i++) {
 
 
    //------------------------------------------------------------------------------update pubindex
-   if (k==1){
-     if (k==2){
+    else if (k==1){
        var listoffiles='';
       var filenamepubindex='PUB_index';
   blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename+'X';
@@ -290,9 +289,9 @@ for (i = 0; i < listpost.length; i++) {
     var pubindex = strx; 
     blockstack.putFile(filenamepubindex, pubindex, {encrypt: false });                      
          return true});
-     k=3;}
+     k=2;}
    //------------------------------------------------------------------------------update privindex
-    if (k==3){
+    else if (k==2){
       var listoffiless='';
       var filenameprivindex='PRIV_index';
   blockstack.listFiles((filename)=>{listoffiless=listoffiless+filename+'X';
@@ -311,7 +310,7 @@ for (j = 0; j < listpostt.length; j++) {
     blockstack.putFile(filenameprivindex, privindex, {encrypt: true });                      
          return true});
     }
-   k=2;}
+ 
    //------------------------------------------------------------------------------
  }
   
@@ -375,7 +374,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 91</h2>
+<h2 align="center"> welcome.... clik login to enter the application 92</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
