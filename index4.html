@@ -66,9 +66,9 @@ input[type=text] {
 }
    try{var tpost=document.getElementById("postpub").value;
        var d=new Date;
-       var dd = d.getDate().toString()+d.getMonth().toString()+d.getFullYear().toString()+d.getHours().toString()+d.getMinutes().toString()+d.getSeconds().toString();
-      
-       var filenamepub='postpub'+dd+'.txt';
+       //var dd = d.getDate().toString()+d.getFullYear().toString()+d.getMonth().toString()+d.getHours().toString()+d.getMinutes().toString()+d.getSeconds().toString();
+       var dd = d.getDate().toString()+d.getFullYear().toString()+("0" + (d.getMonth().toString())).slice(-2)+("0" + (d.getHours().toString())).slice(-2)+("0" + (d.getMinutes().toString())).slice(-2)+("0" + (d.getSeconds().toString())).slice(-2);
+       var filenamepub='PUBLIC_'+dd;
       // document.getElementById("post").value=filename;
     blockstack.putFile(filenamepub, tpost, options);
        document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepub, options);}
@@ -76,7 +76,7 @@ input[type=text] {
 alert(err.message);}
   //***************************************************************************
                  var listoffiles='';
-                 var filenamepubindex='pubindex.txt';
+                 var filenamepubindex='PUB_index';
   blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename+'X';
    var str = listoffiles.toString();
       var listpost = str.split('X');
@@ -85,7 +85,7 @@ alert(err.message);}
       var strr='';
 for (i = 0; i < listpost.length; i++) {
   var post = listpost[i];
-        if (post[5] =='u') {
+        if (post[1] =='u') {
           strr = strr + listpost[i] + 'X';
           }
 }   
@@ -103,9 +103,9 @@ for (i = 0; i < listpost.length; i++) {
 }
    try{var tpost=document.getElementById("postpriv").value;
        var d=new Date;
-       var dd = d.getDate().toString()+d.getMonth().toString()+d.getFullYear().toString()+d.getHours().toString()+d.getMinutes().toString()+d.getSeconds().toString();
-      
-       var filenamepriv='postpriv'+dd+'.txt';
+       //var dd = d.getDate().toString()+d.getFullYear().toString()+d.getMonth().toString()+d.getHours().toString()+d.getMinutes().toString()+d.getSeconds().toString();
+      var dd = d.getDate().toString()+d.getFullYear().toString()+("0" + (d.getMonth().toString())).slice(-2)+("0" + (d.getHours().toString())).slice(-2)+("0" + (d.getMinutes().toString())).slice(-2)+("0" + (d.getSeconds().toString())).slice(-2);
+       var filenamepriv='PRIVATE_'+dd;
       // document.getElementById("post").value=filename;
     blockstack.putFile(filenamepriv, tpost, options);
        document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepriv, options);}
@@ -114,7 +114,7 @@ alert(err.message);}
    
      //***************************************************************************
                  var listoffiles='';
-                 var filenameprivindex='privindex.txt';
+                 var filenameprivindex='PRIV_index';
   blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename+'X';
    var str = listoffiles.toString();
       var listpost = str.split('X');
@@ -123,7 +123,7 @@ alert(err.message);}
       var strr='';
 for (i = 0; i < listpost.length; i++) {
   var post = listpost[i];
-        if (post[5] =='r') {
+        if (post[1] =='r') {
           strr = strr + listpost[i] + '</br>';
           }
 }   
@@ -251,7 +251,7 @@ return true})
  //******************************************************** OTHER CONTENT ****************************************************** 
    async function othercontent(){ 
      
-  var p='pubindex.txt';
+  var p='PUB_index';
   var id=document.getElementById("idother").value;
   try{var t= await blockstack.getFile(p, { username: id, decrypt: false });
       //var str = t.toString();
@@ -294,7 +294,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 69</h2>
+<h2 align="center"> welcome.... clik login to enter the application 70</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
@@ -365,7 +365,7 @@ catch(err){
   <br/>
    
     <p> DELETE ALL FILES  </p>
-    <input align="center" type="button" value="delete" id="deleteall" onclick="deleteall();" /> 
+    <input align="center" type="button" value="delete all files" id="deleteall" onclick="deleteall();" /> 
                                                                                        
    <br/>                                                                                    
   <br/>                                                                                   
