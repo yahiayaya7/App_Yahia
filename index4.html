@@ -186,8 +186,7 @@ alert(err.message);
       var str='';
 for (i = 0; i < listpost.length; i++) {
   var x= await blockstack.getFile(listpost[i], {decrypt: false });
-  var vide = '';
-  if(x==vide){str=str;}
+  if(x==null){str=str;}
   else{str += listpost[i] +"==>"+ x + "<br>";}
 }
    document.getElementById("pubcontent").innerHTML=str;
@@ -207,8 +206,7 @@ for (i = 0; i < listpost.length; i++) {
       var str='';
 for (i = 0; i < listpost.length; i++) {
   var x= await blockstack.getFile(listpost[i], {decrypt: true });
-  var vide = '';
-  if(x==vide){str=str;}
+  if(x==null){str=str;}
   else{str += listpost[i] +"==>"+ x + "<br>";}
 }
    document.getElementById("privcontent").innerHTML=str;
@@ -333,7 +331,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 94</h2>
+<h2 align="center"> welcome.... clik login to enter the application 95</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
