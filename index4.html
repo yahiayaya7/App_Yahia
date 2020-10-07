@@ -332,7 +332,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 98</h2>
+<h2 align="center"> welcome.... clik login to enter the application 99</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
@@ -345,12 +345,12 @@ catch(err){
  <br/>
    <p > publish some PUBLIC text </p>
  <input align="center" type="text"  id="postpub" " />
- <input align="center" type="button" value="share public" id="sharepub" onclick="sharepub();" />
+ <input align="center" type="button" value="share public" id="sharepub" onclick="sharepub(); pubcontent();" />
   <br/>
   
   <p > publish some PRIVATE text </p>
  <input align="center" type="text"  id="postpriv" " />
- <input align="center" type="button" value="share private" id="sharepriv" onclick="sharepriv();" />
+ <input align="center" type="button" value="share private" id="sharepriv" onclick="sharepriv(); privcontent();" />
   <br/>
  
    <br/> 
@@ -379,13 +379,12 @@ catch(err){
   <br/><br/>
   <p > Show the public content </p> 
   <input align="center" type="button" value="show public content" onclick="pubcontent();" />
-  <p id="pubcontent"> ... </p>
   <p id="pubcontent"> <script>pubcontent();</script> </p>
   
     <br/><br/>
   <p > Show the private content </p> 
   <input align="center" type="button" value="show private content" onclick="privcontent();" />
-  <p id="privcontent"> ... </p>
+  <p id="privcontent"> <script>privcontent();</script> </p>
   <br/><br/>
   <!--
     <br/> 
