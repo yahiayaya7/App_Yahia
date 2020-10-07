@@ -92,7 +92,7 @@ for (i = 0; i < listpost.length; i++) {
     blockstack.putFile(filenamepubindex, pubindex, {encrypt: false });
     //document.getElementById("global").innerHTML=pubindex                       
          return true})}
-   this.pubcontent.call();
+   this.pubcontent();
    //------------------------------------------------------------------------------
   }
  
@@ -130,7 +130,7 @@ for (i = 0; i < listpost.length; i++) {
     blockstack.putFile(filenameprivindex, privindex, {encrypt: true });
     //document.getElementById("global").innerHTML=pubindex                       
          return true})}
-   this.privcontent.call();
+   this.privcontent();
    //------------------------------------------------------------------------------
   }
  
