@@ -124,7 +124,7 @@ alert(err.message);}
 for (i = 0; i < listpost.length; i++) {
   var post = listpost[i];
         if (post[4] =='A') {
-          strr = strr + listpost[i] + '</br>';
+          strr = strr + listpost[i] + 'X';
           }
 }   
     var privindex = strr + filenamepriv; 
@@ -210,7 +210,7 @@ for (i = 0; i < listpost.length; i++) {
   str += listpost[i] +"==>"+ x + "<br>";
 }
    document.getElementById("privcontent").innerHTML=str;
-   document.getElementById("global").innerHTML=t;  
+   //document.getElementById("global").innerHTML=t;  
         }
     catch(err){
      alert(err.message);}
@@ -334,7 +334,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 77</h2>
+<h2 align="center"> welcome.... clik login to enter the application 78</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
@@ -387,8 +387,6 @@ catch(err){
   <p > Show the private content </p> 
   <input align="center" type="button" value="show private content" onclick="privcontent();" />
   <p id="privcontent"> ... </p>
-  <br/>
-  <p id="global"> ... </p>
   <br/><br/>
   <!--
     <br/> 
