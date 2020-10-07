@@ -67,7 +67,7 @@ input[type=text] {
    try{var tpost=document.getElementById("postpub").value;
        var d=new Date;
        //var dd = d.getDate().toString()+d.getFullYear().toString()+d.getMonth().toString()+d.getHours().toString()+d.getMinutes().toString()+d.getSeconds().toString();
-       var dd = d.getDate().toString()+d.getFullYear().toString()+("0" + (d.getMonth().toString())).slice(-2)+("0" + (d.getHours().toString())).slice(-2)+("0" + (d.getMinutes().toString())).slice(-2)+("0" + (d.getSeconds().toString())).slice(-2);
+       var dd = d.getFullYear().toString()+("0" + (d.getMonth().toString())).slice(-2)+("0" + (d.getDate().toString())).slice(-2)+("0" + (d.getHours().toString())).slice(-2)+("0" + (d.getMinutes().toString())).slice(-2)+("0" + (d.getSeconds().toString())).slice(-2);
        var filenamepub='PUBLIC_'+dd;
       // document.getElementById("post").value=filename;
     blockstack.putFile(filenamepub, tpost, options);
@@ -104,7 +104,7 @@ for (i = 0; i < listpost.length; i++) {
    try{var tpost=document.getElementById("postpriv").value;
        var d=new Date;
        //var dd = d.getDate().toString()+d.getFullYear().toString()+d.getMonth().toString()+d.getHours().toString()+d.getMinutes().toString()+d.getSeconds().toString();
-      var dd = d.getDate().toString()+d.getFullYear().toString()+("0" + (d.getMonth().toString())).slice(-2)+("0" + (d.getHours().toString())).slice(-2)+("0" + (d.getMinutes().toString())).slice(-2)+("0" + (d.getSeconds().toString())).slice(-2);
+      var dd = d.getFullYear().toString()+("0" + (d.getMonth().toString())).slice(-2)+("0" + (d.getDate().toString())).slice(-2)+("0" + (d.getHours().toString())).slice(-2)+("0" + (d.getMinutes().toString())).slice(-2)+("0" + (d.getSeconds().toString())).slice(-2);
        var filenamepriv='PRIVATE_'+dd;
       // document.getElementById("post").value=filename;
     blockstack.putFile(filenamepriv, tpost, options);
@@ -294,7 +294,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 70</h2>
+<h2 align="center"> welcome.... clik login to enter the application 71</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
@@ -359,11 +359,10 @@ catch(err){
   
      <br/> 
   <p> delete post  </p>              
-  <br/>
   <input align="center" type="text"  id="posttodelete" " />
    <input align="center" type="button" value="delete" id="deleteb" onclick="deletef();" />           
   <br/>
-   
+   <br/>
     <p> DELETE ALL FILES  </p>
     <input align="center" type="button" value="delete all files" id="deleteall" onclick="deleteall();" /> 
                                                                                        
