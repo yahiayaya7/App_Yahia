@@ -262,14 +262,18 @@ for (i = 0; i < listpost.length; i++) {
  */
  
 //******************************************************** DELETE A POST ******************************************************
- function deletef(){
-    var filetodelete=document.getElementById("posttodelete").value;
+ function deletef(){ var k=0;
+  if (k==0){                 
+  var filetodelete=document.getElementById("posttodelete").value;
   blockstack.deleteFile(filetodelete,{wasSigned: false}); 
-   
+  k=1;
+  } 
 
 
    //------------------------------------------------------------------------------update pubindex
-     var listoffiles='';
+   if (k==1){
+     if (k==2){
+       var listoffiles='';
       var filenamepubindex='PUB_index';
   blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename+'X';
    var str = listoffiles.toString();
@@ -282,12 +286,14 @@ for (i = 0; i < listpost.length; i++) {
           strr = strr + listpost[i] + 'X';
           }
 }   
-    var strx = strr.substring(0, strr.length - 1);
+    var strx = strr.slice(0, -1);
     var pubindex = strx; 
     blockstack.putFile(filenamepubindex, pubindex, {encrypt: false });                      
          return true});
+     k=3;}
    //------------------------------------------------------------------------------update privindex
-        var listoffiless='';
+    if (k==3){
+      var listoffiless='';
       var filenameprivindex='PRIV_index';
   blockstack.listFiles((filename)=>{listoffiless=listoffiless+filename+'X';
    var str = listoffiless.toString();
@@ -300,10 +306,12 @@ for (j = 0; j < listpostt.length; j++) {
           strrr = strrr + listpostt[j] + 'X';
           }
 }   
-    var strx = strrr.substring(0, strrr.length - 1);
+    var strx = strrr.slice(0, -1);
     var privindex = strx; 
     blockstack.putFile(filenameprivindex, privindex, {encrypt: true });                      
          return true});
+    }
+   k=2;}
    //------------------------------------------------------------------------------
  }
   
@@ -367,7 +375,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 90</h2>
+<h2 align="center"> welcome.... clik login to enter the application 91</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
