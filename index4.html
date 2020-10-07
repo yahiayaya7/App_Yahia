@@ -92,6 +92,7 @@ for (i = 0; i < listpost.length; i++) {
     blockstack.putFile(filenamepubindex, pubindex, {encrypt: false });
     //document.getElementById("global").innerHTML=pubindex                       
          return true})}
+   this.pubcontent.call();
    //------------------------------------------------------------------------------
   }
  
@@ -129,6 +130,7 @@ for (i = 0; i < listpost.length; i++) {
     blockstack.putFile(filenameprivindex, privindex, {encrypt: true });
     //document.getElementById("global").innerHTML=pubindex                       
          return true})}
+   this.privcontent.call();
    //------------------------------------------------------------------------------
   }
  
@@ -332,7 +334,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 100</h2>
+<h2 align="center"> welcome.... clik login to enter the application 101</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
@@ -345,17 +347,17 @@ catch(err){
  <br/>
    <p > publish some PUBLIC text </p>
  <input align="center" type="text"  id="postpub" " />
- <input align="center" type="button" value="share public" id="sharepub" onclick="sharepub();pubcontent();" />
+ <input align="center" type="button" value="share public" id="sharepub" onclick="sharepub();" />
   <br/>
   
   <p > publish some PRIVATE text </p>
  <input align="center" type="text"  id="postpriv" " />
- <input align="center" type="button" value="share private" id="sharepriv" onclick="sharepriv();privcontent();" />
+ <input align="center" type="button" value="share private" id="sharepriv" onclick="sharepriv();" />
   <br/>
  
    <br/> 
   <p > URL of the added post </p>   
-   <p id="turl"> URL <script>pubcontent();privcontent();</script> </p>  
+   <p id="turl"> URL </p>  
  <p > show a post </p>
   
   <!--
