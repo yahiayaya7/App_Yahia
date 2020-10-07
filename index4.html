@@ -128,7 +128,7 @@ for (i = 0; i < listpost.length; i++) {
           }
 }   
     var privindex = strr + filenamepriv; 
-    blockstack.putFile(filenameprivindex, privindex, {encrypt: true });
+    blockstack.putFile(filenameprivindex, privindex, {encrypt: false });
     //document.getElementById("global").innerHTML=pubindex                       
          return true})
    //****************************************************************************
@@ -201,7 +201,7 @@ for (i = 0; i < listpost.length; i++) {
    async function privcontent(){ 
      
   var p='PRIV_index';
-  try{var t= await blockstack.getFile(p, {decrypt: true });
+  try{var t= await blockstack.getFile(p, {decrypt: false });
       var listpost = t.split('X');
       var i;
       var str='';
@@ -333,7 +333,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 75</h2>
+<h2 align="center"> welcome.... clik login to enter the application 76</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
