@@ -264,10 +264,10 @@ for (i = 0; i < listpost.length; i++) {
 //******************************************************** DELETE A POST ******************************************************
  function deletef(){
   var filetodelete=document.getElementById("posttodelete").value;
-  blockstack.deleteFile(filetodelete,{wasSigned: false})
+  blockstack.deleteFile(filetodelete,{wasSigned: false});
 
    //------------------------------------------------------------------------------update pubindex
-   {{  var listoffiles='';
+     var listoffiles='';
       var filenamepubindex='PUB_index';
   blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename+'X';
    var str = listoffiles.toString();
@@ -282,9 +282,9 @@ for (i = 0; i < listpost.length; i++) {
 }   
     var pubindex = strr; 
     blockstack.putFile(filenamepubindex, pubindex, {encrypt: false });                      
-         return true})}
+         return true});
    //------------------------------------------------------------------------------update privindex
-   {     var listoffiless='';
+        var listoffiless='';
       var filenameprivindex='PRIV_index';
   blockstack.listFiles((filename)=>{listoffiless=listoffiless+filename+'X';
    var str = listoffiless.toString();
@@ -299,7 +299,7 @@ for (j = 0; j < listpostt.length; j++) {
 }   
     var privindex = strrr; 
     blockstack.putFile(filenameprivindex, privindex, {encrypt: true });                      
-         return true})}}
+         return true});
    //------------------------------------------------------------------------------
  }
   
@@ -363,7 +363,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 84</h2>
+<h2 align="center"> welcome.... clik login to enter the application 85</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
