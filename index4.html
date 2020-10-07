@@ -58,7 +58,8 @@ input[type=text] {
    })
  }
  }
-  
+
+//******************************************************** SHARE PUBLIC ******************************************************
  async function sharepub()
   {let options = {
   encrypt: false
@@ -95,6 +96,7 @@ for (i = 0; i < listpost.length; i++) {
    //****************************************************************************
   }
  
+//******************************************************** SHARE PRIVATE ******************************************************
   async function sharepriv()
   {let options = {
   encrypt: true
@@ -148,7 +150,8 @@ for (i = 0; i < listpost.length; i++) {
 alert(err.message);}
   }
   */
-  
+
+  //******************************************************** SHOW PUBLIC POST ******************************************************
   async function showpub()
   {let options = {
   decrypt: false}
@@ -161,7 +164,7 @@ alert(err.message);}
 alert(err.message);
  } }
  
- 
+//******************************************************** SHOW PRIVATE POST ****************************************************** 
    async function showpriv()
   {let options = {
   decrypt: true}
@@ -174,7 +177,7 @@ alert(err.message);
 alert(err.message);
  } }
  
- 
+//******************************************************** LIST FILES ****************************************************** 
  function listf(){ var listoffiles=' ';
                   document.getElementById("note").innerHTML='display outstanding'    
   blockstack.listFiles((filename)=>{listoffiles=listoffiles+'<br/>'+filename;
@@ -220,6 +223,7 @@ for (i = 0; i < listpost.length; i++) {
     }
  */
  
+//******************************************************** DELETE A POST ******************************************************
  function deletef(){
   var filetodelete=document.getElementById("posttodelete").value;
   let options = {
@@ -229,7 +233,21 @@ for (i = 0; i < listpost.length; i++) {
  catch(err){
 alert(err.message);}
  }
+  
+//******************************************************** DELETE ALL ******************************************************
+  function deleteall(){
+     var listoffiles='';
+  blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename+'X';
+   var str = listoffiles.toString();
+      var listpost = str.split('X');
+      var i;
+for (i = 0; i < listpost.length; i++) {
+  var filetodelete = listpost[i];
+  blockstack.deleteFile(filetodelete,{wasSigned: false})
+} 
+ }
  
+ //******************************************************** OTHER CONTENT ****************************************************** 
    async function othercontent(){ 
      
   var p='pubindex.txt';
@@ -275,7 +293,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 67</h2>
+<h2 align="center"> welcome.... clik login to enter the application 68</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
@@ -343,10 +361,14 @@ catch(err){
   <br/>
   <input align="center" type="text"  id="posttodelete" " />
    <input align="center" type="button" value="delete" id="deleteb" onclick="deletef();" />           
-  <br/>                                                                                  
-<p > show a postof other user </p>
   <br/>
- 
+   
+    <p> DELETE ALL FILES  </p>
+    <input align="center" type="button" value="delete" id="deleteall" onclick="deleteall();" /> 
+                                                                                       
+   <br/>                                                                                    
+  <br/>                                                                                   
+<p > show a postof other user </p>
  <p>idof other user</p> 
  <input align="center" type="text"  id="idother" />
  <p>Content of the other user</p>
