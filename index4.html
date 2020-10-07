@@ -176,6 +176,45 @@ alert(err.message);
  catch(err){
 alert(err.message);
  } }
+  
+  
+   //******************************************************** SHOW PUBLIC CONTENT ****************************************************** 
+   async function pubcontent(){ 
+     
+  var p='PUB_index';
+  try{var t= await blockstack.getFile(p, {decrypt: false });
+      var listpost = t.split('X');
+      var i;
+      var str='';
+for (i = 0; i < listpost.length; i++) {
+  var x= await blockstack.getFile(listpost[i], {decrypt: false });
+  str += listpost[i] +"==>"+ x + "<br>";
+}
+   document.getElementById("pubcontent").innerHTML=str;
+        }
+    catch(err){
+     alert(err.message);}
+     }
+  
+  
+   //******************************************************** SHOW PRIVATE CONTENT ****************************************************** 
+   async function privcontent(){ 
+     
+  var p='PRIV_index';
+  try{var t= await blockstack.getFile(p, {decrypt: true });
+      var listpost = t.split('X');
+      var i;
+      var str='';
+for (i = 0; i < listpost.length; i++) {
+  var x= await blockstack.getFile(listpost[i], {decrypt: true });
+  str += listpost[i] +"==>"+ x + "<br>";
+}
+   document.getElementById("privcontent").innerHTML=str;
+        }
+    catch(err){
+     alert(err.message);}
+     }
+  
  
 //******************************************************** LIST FILES ****************************************************** 
  function listf(){ var listoffiles=' ';
@@ -294,7 +333,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 73</h2>
+<h2 align="center"> welcome.... clik login to enter the application 74</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
@@ -338,6 +377,16 @@ catch(err){
 <p> here your post </p> 
  <p id="posted"></p>
   
+  <br/><br/>
+  <p > Show the public content </p> 
+  <input align="center" type="button" value="show public content" onclick="pubcontent();" />
+  <p id="pubcontent"> ... </p>
+  
+    <br/><br/>
+  <p > Show the private content </p> 
+  <input align="center" type="button" value="show private content" onclick="privcontent();" />
+  <p id="privcontent"> ... </p>
+  <br/><br/>
   <!--
     <br/> 
   <p> GOOOBAL  </p>              
@@ -349,11 +398,10 @@ catch(err){
   -->
  
   <br/> 
-  <p> list of posts  </p>              
-   <br/>                                                                                  
+  <p> list of all files  </p>                                                                                               
     <input align="center" type="button" value="listfiles" id="listf" onclick="listf();" />  
   <br/> 
-  <p id="note"> 00000 </p>
+  <p id="note"> ... </p>
    <br/> 
   
   
