@@ -298,7 +298,8 @@ return true})
       var str='';
 for (i = 0; i < listpost.length; i++) {
   var x= await blockstack.getFile(listpost[i], { username: id, decrypt: false });
-  str += listpost[i] +"==>"+ x + "<br>";
+  if(x==null){str=str;}
+  else{str += listpost[i] +"==>"+ x + "<br>";}
 }
    document.getElementById("othercontent").innerHTML=str;
    //document.getElementById("othercontentpost").innerHTML=x;
@@ -331,7 +332,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 95</h2>
+<h2 align="center"> welcome.... clik login to enter the application 97</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
