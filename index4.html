@@ -186,7 +186,9 @@ alert(err.message);
       var str='';
 for (i = 0; i < listpost.length; i++) {
   var x= await blockstack.getFile(listpost[i], {decrypt: false });
-  str += listpost[i] +"==>"+ x + "<br>";
+  var vide = '';
+  if(x==vide){str=str;}
+  else{str += listpost[i] +"==>"+ x + "<br>";}
 }
    document.getElementById("pubcontent").innerHTML=str;
         }
@@ -205,7 +207,9 @@ for (i = 0; i < listpost.length; i++) {
       var str='';
 for (i = 0; i < listpost.length; i++) {
   var x= await blockstack.getFile(listpost[i], {decrypt: true });
-  str += listpost[i] +"==>"+ x + "<br>";
+  var vide = '';
+  if(x==vide){str=str;}
+  else{str += listpost[i] +"==>"+ x + "<br>";}
 }
    document.getElementById("privcontent").innerHTML=str;
    //document.getElementById("global").innerHTML=t;  
@@ -262,57 +266,11 @@ for (i = 0; i < listpost.length; i++) {
  */
  
 //******************************************************** DELETE A POST ******************************************************
- function deletef(){ var k;
-  for(k=0;k<3;k++){
-  if (k==0){                 
+ function deletef(){
+              
   var filetodelete=document.getElementById("posttodelete").value;
   try{ blockstack.deleteFile(filetodelete,{wasSigned: false})}
  catch(err){alert(err.message);}
-  } 
-
-
-   //------------------------------------------------------------------------------update pubindex
-    if (k==1){
-       var listoffiles='';
-      var filenamepubindex='PUB_index';
-  blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename+'X';
-   var str = listoffiles.toString();
-      var listpost = str.split('X');
-      var i;
-      var strr='';
-for (i = 0; i < listpost.length; i++) {
-  var post = listpost[i];
-        if (post[3] =='L') {
-          strr = strr + listpost[i] + 'X';
-          }
-}   
-    var strx = strr.slice(0, -1);
-    var pubindex = strx; 
-    blockstack.putFile(filenamepubindex, pubindex, {encrypt: false });                      
-         return true});
-     }
-   //------------------------------------------------------------------------------update privindex
-    if (k==2){
-      var listoffiless='';
-      var filenameprivindex='PRIV_index';
-  blockstack.listFiles((filename)=>{listoffiless=listoffiless+filename+'X';
-   var str = listoffiless.toString();
-      var listpostt = str.split('X');
-      var j;
-      var strrr='';
-for (j = 0; j < listpostt.length; j++) {
-  var postt = listpostt[i];
-        if (postt[4] =='A') {
-          strrr = strrr + listpostt[j] + 'X';
-          }
-}   
-    var strx = strrr.slice(0, -1);
-    var privindex = strx; 
-    blockstack.putFile(filenameprivindex, privindex, {encrypt: true });                      
-         return true});
-    }
-  }
-   //------------------------------------------------------------------------------
  }
   
 //******************************************************** DELETE ALL ******************************************************
@@ -375,7 +333,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 93</h2>
+<h2 align="center"> welcome.... clik login to enter the application 94</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
