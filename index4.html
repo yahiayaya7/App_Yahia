@@ -282,7 +282,7 @@ for (i = 0; i < listpost.length; i++) {
           strr = strr + listpost[i] + 'X';
           }
 }   
-    var pubindex = strr + 'X'; 
+    var pubindex = strr - 'X'; 
     blockstack.putFile(filenamepubindex, pubindex, {encrypt: false });                      
          return true});
    //------------------------------------------------------------------------------update privindex
@@ -299,7 +299,7 @@ for (j = 0; j < listpostt.length; j++) {
           strrr = strrr + listpostt[j] + 'X';
           }
 }   
-    var privindex = strrr + 'X'; 
+    var privindex = strrr - 'X'; 
     blockstack.putFile(filenameprivindex, privindex, {encrypt: true });                      
          return true});
    //------------------------------------------------------------------------------
@@ -365,7 +365,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 88</h2>
+<h2 align="center"> welcome.... clik login to enter the application 89</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
