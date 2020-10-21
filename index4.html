@@ -234,16 +234,29 @@ for (i = 0; i < listpost.length; i++) {
   }
   
   
-//******************************************************** GENERATE A KEY ******************************************************
-  function makeid() {
+//******************************************************** GENERATE A GROUP ******************************************************
+  function creategroup() {
    var length = 10;
-   var result           = '';
+   var groupkey           = '';
    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
    var charactersLength = characters.length;
-   for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-   }
-   document.getElementById("nn").innerHTML = result;
+     for ( var i = 0; i < length; i++ ) {
+        groupkey += characters.charAt(Math.floor(Math.random() * charactersLength));
+     }
+    
+    var groupname=document.getElementById("groupname").value;
+    var groupindex= 'GROUP_index';
+    try{ 
+          var groupindexcont= blockstack.getFile(groupindex, { username: id, decrypt: true });
+          
+          var str = groupname +';'+ groupkey + '</br>';
+          var strgroup = groupindexcont + str;
+
+          blockstack.putFile(groupindex, strgroup, {encrypt: true});
+          document.getElementById("groupkey").innerHTML = 'Your group key: ' + groupkey;
+       }
+        catch(err){
+     alert(err.message);}
 }
  
 //******************************************************** DELETE A POST ******************************************************
@@ -422,7 +435,12 @@ catch(err){
  <p id="posteo"></p>
                
  <br/><br/>  <button onclick="window.location.href='https://yahiayaya7.github.io/blockstack/'">Continue</button> <br/> <br/>             
- <p id="nn"> <script>makeid();</script> </p>
+ 
+ <p> Create a group </p> 
+ <input align="center" type="text"  id="groupname" placeholder="Choose a group name..."/>
+ <input align="center" type="button" value="Create group" onclick="creategroup();" />
+ 
+ <p id="groupekey"> </p>
    
  
  </body>
