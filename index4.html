@@ -60,7 +60,7 @@ input[type=text] {
  }
  
  //******************************************************** PROFILE ******************************************************
-  async function profileinfo(){
+ async function profileinfo(){
     try{
          var name = document.getElementById("name").value;
          var birthday = document.getElementById("birthday").value;
@@ -70,9 +70,9 @@ input[type=text] {
          var gender = '';
     
     if (male == 'male'){
-    gender = 'Male;}
+      gender = 'Male';}
     else if (female == 'female'){
-    gender = 'Female';}
+      gender = 'Female';}
     else {gender = 'Not defined';}
       
     var profile = name.toString() +'X'+ birthday.toString() +'X'+ gender;
