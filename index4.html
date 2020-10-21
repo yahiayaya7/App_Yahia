@@ -58,6 +58,27 @@ input[type=text] {
    })
  }
  }
+ 
+ //******************************************************** PROFILE ******************************************************
+  function profile(){
+   var name = document.getElementById("name").value;
+   var birthday = document.getElementById("birthday").value;
+   var male = document.getElementById("male").value;
+   var female = document.getElementById("female").value;
+   var nameprofileindex='PROFIL_index';
+   var gender = '';
+    
+    if (male == 'male'){
+    gender = 'Male;}
+    else if (female == 'female'){
+    gender = 'Female';}
+    else {gender = 'Not defined';}
+      
+    var profile = name +'X'+ birthday +'X'+ gender;
+    
+    blockstack.putFile(nameprofileindex, profile, {encrypt: false });
+  
+  }
 
 //******************************************************** SHARE PUBLIC ******************************************************
  async function sharepub()
@@ -347,18 +368,18 @@ catch(err){
   <input align="center" type="text"  id="name" placeholder="Your name..." /> <br/>
   <label for="birthday">Birthday:</label>
   <input align="center" type="date"  id="birthday"  /> <br/>
-  <input align="center" type="text"  id="name" placeholder="Your gender..." />
+  <label for="birthday">Your gender: </label>
+      <input type="radio" id="male" value="male" /> Male
+      <input type="radio" id="female" value="female" /> Female
   <br/>
  <input align="center" type="button" value="Submit" id="profile" onclick="profile();"/>
   <br/>
  
  <br/>
    <p > publish some PUBLIC text </p>
- <input align="center" type="text"  id="postpub" " />
-    <form action="" method="post">
-    <input type="radio" name="public" value="public" /> Public
-    <input type="radio" name="private" value="private" /> Private
-    </form>
+ <input align="center" type="text"  id="postpub" " /> <br/>
+    <input type="radio" id="public" value="public" /> Public
+    <input type="radio" id="private" value="private" /> Private
  <input align="center" type="button" value="share public" id="sharepub" onclick="sharepub();"/>
   <br/>
   
