@@ -61,23 +61,27 @@ input[type=text] {
  
  //******************************************************** PROFILE ******************************************************
   async function profile(){
-   var name = document.getElementById("name").value;
-   var birthday = document.getElementById("birthday").value;
-   var male = document.getElementById("male").value;
-   var female = document.getElementById("female").value;
-   var nameprofileindex='PROFIL_index';
-   var gender = '';
+    try{
+         var name = document.getElementById("name").value;
+         var birthday = document.getElementById("birthday").value;
+         var male = document.getElementById("male").value;
+         var female = document.getElementById("female").value;
+         var nameprofileindex='PROFIL_index';
+         var gender = '';
     
-    if (male == 'true'){
+    if (male == 'male'){
     gender = 'Male;}
-    else if (female == 'true'){
+    if (female == 'female'){
     gender = 'Female';}
-    else {gender = 'Not defined';}
+    //else {gender = 'Not defined';}
       
     var profile = name +'X'+ birthday +'X'+ gender;
     
     blockstack.putFile(nameprofileindex, profile, {encrypt: false });
-      return true
+    }
+     
+         catch(err){
+alert(err.message);}
   
   }
 
