@@ -69,9 +69,9 @@ input[type=text] {
          var nameprofileindex='Profil_index';
          var gender = '';
     
-    if (male == 'true'){
+    if (male.toString() == 'true'){
       gender = 'Male';}
-    else if (female == 'true'){
+    else if (female.toString() == 'true'){
       gender = 'Female';}
     else {gender = 'Not defined';}
       
@@ -98,7 +98,7 @@ alert(err.message);}
          
 
     
-    if (public == 'true'){
+    if (public.toString() == 'true'){
       var filenamepub='PUBLIC_'+dd;
       blockstack.putFile(filenamepub, tpost, {encrypt: false});
       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepub, {encrypt: false});
@@ -123,7 +123,7 @@ for (i = 0; i < listpostpub.length; i++) {
      
     }
       
-    else if (private == 'true'){
+    else if (private.toString() == 'true'){
       var filenamepriv='PRIVATE_'+dd;
       blockstack.putFile(filenamepriv, tpost, {encrypt: true});
       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepriv, {encrypt: true});
