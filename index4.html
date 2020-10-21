@@ -64,14 +64,14 @@ input[type=text] {
     try{
          var name = document.getElementById("name").value;
          var birthday = document.getElementById("birthday").value;
-         var male = document.getElementById("male").value;
-         var female = document.getElementById("female").value;
+         var male = document.getElementById("male").checked;
+         var female = document.getElementById("female").checked;
          var nameprofileindex='Profil_index';
          var gender = '';
     
-    if (male == 'male'){
+    if (male == 'true'){
       gender = 'Male';}
-    else if (female == 'female'){
+    else if (female == 'true'){
       gender = 'Female';}
     else {gender = 'Not defined';}
       
@@ -89,8 +89,8 @@ alert(err.message);}
  async function share(){
     try{ 
          var tpost=document.getElementById("postshare").value;
-         var public = document.getElementById("public").value;
-         var private = document.getElementById("private").value;
+         var public = document.getElementById("public").checked;
+         var private = document.getElementById("private").checked;
          var d=new Date;
          var dd = d.getFullYear().toString()+("0" + (d.getMonth().toString())).slice(-2)+("0" + (d.getDate().toString())).slice(-2)+("0" + (d.getHours().toString())).slice(-2)+("0" + (d.getMinutes().toString())).slice(-2)+("0" + (d.getSeconds().toString())).slice(-2);
          
@@ -98,7 +98,7 @@ alert(err.message);}
          
 
     
-    if (public == 'public'){
+    if (public == 'true'){
       var filenamepub='PUBLIC_'+dd;
       blockstack.putFile(filenamepub, tpost, {encrypt: false});
       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepub, {encrypt: false});
@@ -123,7 +123,7 @@ for (i = 0; i < listpostpub.length; i++) {
      
     }
       
-    else if (private == 'private'){
+    else if (private == 'true'){
       var filenamepriv='PRIVATE_'+dd;
       blockstack.putFile(filenamepriv, tpost, {encrypt: true});
       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepriv, {encrypt: true});
