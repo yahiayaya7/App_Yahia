@@ -250,7 +250,7 @@ for (i = 0; i < listpost.length; i++) {
           var groupindexcont= blockstack.getFile(groupindex, {decrypt: true });
           
           var str = groupname +';'+ groupkey + '</br>';
-          var strgroup = groupindexcont + str;
+          var strgroup = groupindexcont.toString() + str;
 
           blockstack.putFile(groupindex, strgroup, {encrypt: true});
           var showkey = 'Your group key: ' + groupkey;
@@ -329,7 +329,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 108</h2>
+<h2 align="center"> welcome.... clik login to enter the application 109</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
