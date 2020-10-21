@@ -29,6 +29,18 @@ input[type=text] {
   //blockstack.UserSession.appConfig=appConfig;
   
  }
+  
+  function makeid() {
+   var length = 5;
+   var result           = '';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   document.getElementById("nn").innerHTML = result;
+}
+  
  function sigout() {
    blockstack.signUserOut(window.location.origin)
  
@@ -304,8 +316,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 103</h2>
-  <br/> <button onclick="window.location.href='https://yahiayaya7.github.io/blockstack/'">Continue</button> <br/>
+<h2 align="center"> welcome.... clik login to enter the application 104</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
@@ -410,6 +421,9 @@ catch(err){
  <input align="center" type="button" value="show" id="showbo" onclick="showof();" />
 <p> here your post </p> 
  <p id="posteo"></p>
+               
+ <br/><br/>  <button onclick="window.location.href='https://yahiayaya7.github.io/blockstack/'">Continue</button> <br/> <br/>             
+ <p id="nn"> <script>makeid();</script> </p>
    
  
  </body>
