@@ -97,7 +97,7 @@ alert(err.message);}
          
          
 
-    if (tpost !=null){
+    if (tpost.toString() !=null){
     if (public.toString() == 'true'){
       var filenamepub='PUBLIC_'+dd;
       blockstack.putFile(filenamepub, tpost, {encrypt: false});
@@ -148,7 +148,9 @@ for (j = 0; j < listpostpriv.length; j++) {
     } 
     }
       
-    else{document.getElementById("turl").innerHTML="you must enter a text";
+    else if (tpost.toString() == null){
+      var alert = "you must enter a text";
+      document.getElementById("turl").innerHTML=alert;
       
 
     }
