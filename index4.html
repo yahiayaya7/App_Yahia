@@ -339,12 +339,26 @@ catch(err){
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
  <input align="center" type="button" value="isgned" id="issigned" onclick="issigin();" />
  <p id="state"> </p>
- <img id="avatar-image" src="" width="100" height="150"/>
+ <img id="avatar-image" src="" width="100" height="150"/>    
 <br/>
+  
+   <br/>
+   <p> Enter your informations </p>
+  <input align="center" type="text"  id="name" placeholder="Your name..." />
+  <label for="birthday">Birthday:</label>
+  <input align="center" type="date"  id="birthday"  />
+  <input align="center" type="text"  id="name" placeholder="Your gender..." />
+  <br/>
+ <input align="center" type="button" value="submit" id="profile" onclick="profile();"/>
+  <br/>
  
  <br/>
    <p > publish some PUBLIC text </p>
  <input align="center" type="text"  id="postpub" " />
+    <form action="" method="post">
+    <input type="radio" name="public" value="public" /> Public
+    <input type="radio" name="private" value="private" /> Private
+    </form>
  <input align="center" type="button" value="share public" id="sharepub" onclick="sharepub();"/>
   <br/>
   
