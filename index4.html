@@ -236,6 +236,8 @@ for (i = 0; i < listpost.length; i++) {
   
 //******************************************************** CREATE A GROUP ******************************************************
   function creategroup() {
+   var groupindexcont= blockstack.getFile(groupindex, {decrypt: true });
+    
    var length = 10;
    var groupkey           = '';
    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -247,7 +249,7 @@ for (i = 0; i < listpost.length; i++) {
     var groupname=document.getElementById("groupname").value;
     var groupindex= 'GROUP_index';
     try{ 
-          var groupindexcont= blockstack.getFile(groupindex, {decrypt: true });
+          
           
           var str = groupname +';'+ groupkey + '</br>';
           var strgroup = groupindexcont.toString() + str;
@@ -329,7 +331,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 109</h2>
+<h2 align="center"> welcome.... clik login to enter the application 110</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
