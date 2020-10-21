@@ -252,7 +252,7 @@ for (i = 0; i < listpost.length; i++) {
           
           var str = groupname +';'+ groupkey + '</br>';
 
-          var strgroup = (Promise.resolve(groupindexcont)).toString() + str; 
+          var strgroup = (Promise.reject(groupindexcont)).toString() + str; 
 
 
           blockstack.putFile(groupindex, strgroup, {encrypt: true});
@@ -332,7 +332,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 113</h2>
+<h2 align="center"> welcome.... clik login to enter the application 114</h2>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
