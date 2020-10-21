@@ -157,95 +157,6 @@ alert(err.message);}
   
   }
 
-//******************************************************** SHARE PUBLIC ******************************************************
- async function sharepub()
-  {let options = {
-  encrypt: false
-}
-   try{var tpost=document.getElementById("postpub").value;
-       var d=new Date;
-       //var dd = d.getDate().toString()+d.getFullYear().toString()+d.getMonth().toString()+d.getHours().toString()+d.getMinutes().toString()+d.getSeconds().toString();
-       var dd = d.getFullYear().toString()+("0" + (d.getMonth().toString())).slice(-2)+("0" + (d.getDate().toString())).slice(-2)+("0" + (d.getHours().toString())).slice(-2)+("0" + (d.getMinutes().toString())).slice(-2)+("0" + (d.getSeconds().toString())).slice(-2);
-       var filenamepub='PUBLIC_'+dd;
-      // document.getElementById("post").value=filename;
-    blockstack.putFile(filenamepub, tpost, options);
-       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepub, options);}
-   catch(err){
-alert(err.message);}
-  //------------------------------------------------------------------------------
-   {  var listoffiles='';
-      var filenamepubindex='PUB_index';
-  blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename+'X';
-   var str = listoffiles.toString();
-      var listpost = str.split('X');
-      var i;
-      var strr='';
-for (i = 0; i < listpost.length; i++) {
-  var post = listpost[i];
-        if (post[3] =='L') {
-          strr = strr + listpost[i] + 'X';
-          }
-}   
-    var pubindex = strr + filenamepub; 
-    blockstack.putFile(filenamepubindex, pubindex, {encrypt: false });
-    //document.getElementById("global").innerHTML=pubindex                       
-         return true})}
-   //------------------------------------------------------------------------------
-  }
- 
-//******************************************************** SHARE PRIVATE ******************************************************
-  async function sharepriv()
-  {let options = {
-  encrypt: true
-}
-   try{var tpost=document.getElementById("postpriv").value;
-       var d=new Date;
-       //var dd = d.getDate().toString()+d.getFullYear().toString()+d.getMonth().toString()+d.getHours().toString()+d.getMinutes().toString()+d.getSeconds().toString();
-      var dd = d.getFullYear().toString()+("0" + (d.getMonth().toString())).slice(-2)+("0" + (d.getDate().toString())).slice(-2)+("0" + (d.getHours().toString())).slice(-2)+("0" + (d.getMinutes().toString())).slice(-2)+("0" + (d.getSeconds().toString())).slice(-2);
-       var filenamepriv='PRIVATE_'+dd;
-      // document.getElementById("post").value=filename;
-    blockstack.putFile(filenamepriv, tpost, options);
-       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepriv, options);}
-   catch(err){
-alert(err.message);}
-   
-     //------------------------------------------------------------------------------
-   {  var listoffiles='';
-      var filenameprivindex='PRIV_index';
-  blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename+'X';
-   var str = listoffiles.toString();
-      var listpost = str.split('X');
-      var i;
-      var strr='';
-for (i = 0; i < listpost.length; i++) {
-  var post = listpost[i];
-        if (post[4] =='A') {
-          strr = strr + listpost[i] + 'X';
-          }
-}   
-    var privindex = strr + filenamepriv; 
-    blockstack.putFile(filenameprivindex, privindex, {encrypt: true });
-    //document.getElementById("global").innerHTML=pubindex                       
-         return true})}
-   //------------------------------------------------------------------------------
-  }
- 
-  
-/*   async function pubindex()
-  {let options = {
-  encrypt: false
-}
-
-   try{  var tpost=document.getElementById("pubindex").value;      
-       var filenamepubindex='pubindex.txt';
-      // document.getElementById("post").value=filename;
-    blockstack.putFile(filenamepubindex, tpost, options);
-       document.getElementById("purl").innerHTML=await blockstack.getFileUrl(filenamepubindex, options);
-       }
-   catch(err){
-alert(err.message);}
-  }
-  */
 
   //******************************************************** SHOW PUBLIC POST ******************************************************
   async function showpub()
@@ -323,43 +234,10 @@ for (i = 0; i < listpost.length; i++) {
  
     document.getElementById("note").innerHTML=listoffiles
          return true}     )
-                  
-          
-     /*  {let options = {encrypt: false}            
-      try{     var li = 'yayaya';
-       var filenamepubindex='pubindex.txt';
-      // document.getElementById("post").value=filename;
-    blockstack.putFile(filenamepubindex, li, options);
-       //document.getElementById("purl").innerHTML=await blockstack.getFileUrl(filenamepubindex, options);
-       }
-   catch(err){
-alert(err.message);}  */
-
-                  
+                
   }
   
-  /*
-function fct(){ 
-                 var listoffiles='';
-                 var filenamepubindex='pubindex.txt';
-  blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename+'X';
-   var str = listoffiles.toString();
-      var listpost = str.split('X');
-      var i;
-      var j;
-      var strr='';
-for (i = 0; i < listpost.length; i++) {
-  var post = listpost[i];
-        if (post[5] =='u') {
-          strr = strr + listpost[i] + '</br>';
-          }
-}   
-    blockstack.putFile(filenamepubindex, strr, {encrypt: false });
-    document.getElementById("global").innerHTML=strr                        
-         return true})
-  
-    }
- */
+
  
 //******************************************************** DELETE A POST ******************************************************
  function deletef(){
@@ -442,9 +320,9 @@ catch(err){
   
    <br/>
    <p> Enter your informations... </p>
-  <input align="center" type="text"  id="name" placeholder="Your name..." required> <br/>
+  <input align="center" type="text"  id="name" placeholder="Your name..." /> <br/>
   <label>Birthday:</label>
-  <input align="center" type="date"  id="birthday"  required> <br/>
+  <input align="center" type="date"  id="birthday"  /> <br/>
   <label>Your gender: </label>
       <input type="radio" id="male" name="gender" value="male" /> Male
       <input type="radio" id="female" name="gender" value="female" /> Female
@@ -454,27 +332,16 @@ catch(err){
   
    <br/>
    <p > PUBLISH SOME TEXT </p>
- <input align="center" type="text"  id="postshare" required>
+ <input align="center" type="text"  id="postshare" " />
  <input align="center" type="button" value="share" id="share" onclick="share();"/> <br/>
     <input type="radio" id="public" name="post" value="public" /> Public
     <input type="radio" id="private" name="post" value="private" /> Private
   <br/>
- 
- <br/>
-   <p > publish some PUBLIC text </p>
- <input align="center" type="text"  id="postpub" " />
- <input align="center" type="button" value="share public" id="sharepub" onclick="sharepub();"/>
-  <br/>
-  
-  <p > publish some PRIVATE text </p>
- <input align="center" type="text"  id="postpriv" " />
- <input align="center" type="button" value="share private" id="sharepriv" onclick="sharepriv();" />
-  <br/>
- 
-   <br/> 
+                                                                
   <p > URL of the added post </p>   
    <p id="turl"> URL </p>  
- <p > show a post </p>
+               
+ <br/>
   
   <!--
    <br/> 
@@ -487,7 +354,7 @@ catch(err){
    -->
  
   <br/>
-    <p > Show a post </p> 
+    <p> Show a post </p> 
  <input align="center" type="text"  id="posttoshow" />
  <input align="center" type="button" value="show public" id="showpub" onclick="showpub();" />
  <input align="center" type="button" value="show private" id="showpriv" onclick="showpriv();" />
