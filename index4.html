@@ -84,6 +84,78 @@ input[type=text] {
 alert(err.message);}
   
   }
+  
+   //******************************************************** SHARE ******************************************************
+ async function share(){
+    try{ 
+         var tpost=document.getElementById("postshare").value;
+         var public = document.getElementById("public").value;
+         var private = document.getElementById("private").value;
+         var d=new Date;
+         var dd = d.getFullYear().toString()+("0" + (d.getMonth().toString())).slice(-2)+("0" + (d.getDate().toString())).slice(-2)+("0" + (d.getHours().toString())).slice(-2)+("0" + (d.getMinutes().toString())).slice(-2)+("0" + (d.getSeconds().toString())).slice(-2);
+         
+         
+         
+
+    
+    if (public == 'public'){
+      var filenamepub='PUBLIC_'+dd;
+      blockstack.putFile(filenamepub, tpost, {encrypt: false});
+      document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepub, {encrypt: false});
+      
+      {  var listoffilespub='';
+      var filenamepubindex='PUB_index';
+  blockstack.listFiles((filename)=>{listoffilespub=listoffilespub+filename+'X';
+   var strpub = listoffilespub.toString();
+      var listpostpub = strpub.split('X');
+      var i;
+      var str1='';
+for (i = 0; i < listpostpub.length; i++) {
+  var postpub = listpostpub[i];
+        if (postpub[3] =='L') {
+          str1 = str1 + listpostpub[i] + 'X';
+          }
+}   
+    var pubindex = str1 + filenamepub; 
+    blockstack.putFile(filenamepubindex, pubindex, {encrypt: false });
+    //document.getElementById("global").innerHTML=pubindex                       
+         return true})}
+     
+    }
+      
+    else if (private == 'private'){
+      var filenamepriv='PRIVATE_'+dd;
+      blockstack.putFile(filenamepriv, tpost, {encrypt: true});
+      document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepriv, {encrypt: true});
+      
+         {  var listoffilespriv='';
+      var filenameprivindex='PRIV_index';
+  blockstack.listFiles((filename)=>{listoffilespriv=listoffilespriv+filename+'X';
+   var strpriv = listoffilespriv.toString();
+      var listpostpriv = strpriv.split('X');
+      var j;
+      var str2='';
+for (j = 0; j < listpostpriv.length; j++) {
+  var postpriv = listpostpriv[j];
+        if (postpriv[4] =='A') {
+          str2 = str2 + listpostpriv[j] + 'X';
+          }
+}   
+    var privindex = str2 + filenamepriv; 
+    blockstack.putFile(filenameprivindex, privindex, {encrypt: true });
+    //document.getElementById("global").innerHTML=pubindex                       
+         return true})}
+      
+      
+    }
+    
+      
+
+    }
+         catch(err){
+alert(err.message);}
+  
+  }
 
 //******************************************************** SHARE PUBLIC ******************************************************
  async function sharepub()
@@ -379,12 +451,18 @@ catch(err){
   <br/>
  <input align="center" type="button" value="Submit" id="profile" onclick="profileinfo();"/>
   <br/>
+  
+   <br/>
+   <p > PUBLISH SOME TEXT </p>
+ <input align="center" type="text"  id="postshare" " />
+ <input align="center" type="button" value="share" id="share" onclick="share();"/> <br/>
+    <input type="radio" id="public" value="public" /> Public
+    <input type="radio" id="private" value="private" /> Private
+  <br/>
  
  <br/>
    <p > publish some PUBLIC text </p>
- <input align="center" type="text"  id="postpub" " /> <br/>
-    <input type="radio" id="public" value="public" /> Public
-    <input type="radio" id="private" value="private" /> Private
+ <input align="center" type="text"  id="postpub" " />
  <input align="center" type="button" value="share public" id="sharepub" onclick="sharepub();"/>
   <br/>
   
