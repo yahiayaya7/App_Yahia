@@ -94,12 +94,8 @@ alert(err.message);}
          var d=new Date;
          var dd = d.getFullYear().toString()+("0" + (d.getMonth().toString())).slice(-2)+("0" + (d.getDate().toString())).slice(-2)+("0" + (d.getHours().toString())).slice(-2)+("0" + (d.getMinutes().toString())).slice(-2)+("0" + (d.getSeconds().toString())).slice(-2);
          
-         
-      if (tpost == null){
-      var alert = 'you must enter a text';
-      document.getElementById("turl").innerHTML=alert;}     
+             
 
-    else {
     if (public.toString() == 'true'){
       var filenamepub='PUBLIC_'+dd;
       blockstack.putFile(filenamepub, tpost, {encrypt: false});
@@ -148,7 +144,6 @@ for (j = 0; j < listpostpriv.length; j++) {
     //document.getElementById("global").innerHTML=pubindex                       
          return true})}
     } 
-    }
       
      
 
@@ -321,20 +316,20 @@ catch(err){
   
    <br/>
    <p> Enter your informations... </p>
-  <input align="center" type="text"  id="name" placeholder="Your name..." /> <br/>
+  <input align="center" type="text" name="info" id="name" placeholder="Your name..." required> <br/>
   <label>Birthday:</label>
-  <input align="center" type="date"  id="birthday"  /> <br/>
+  <input align="center" type="date" name="info" id="birthday"  required> <br/>
   <label>Your gender: </label>
       <input type="radio" id="male" name="gender" value="male" /> Male
       <input type="radio" id="female" name="gender" value="female" /> Female
   <br/>
- <input align="center" type="button" value="Submit" id="profile" onclick="profileinfo();"/>
+ <input align="center" type="button" name="info" value="Submit" id="profile" onclick="profileinfo();"/>
   <br/>
   
    <br/>
    <p > PUBLISH SOME TEXT </p>
- <input align="center" type="text"  id="postshare" " />
- <input align="center" type="button" value="share" id="share" onclick="share();"/> <br/>
+ <input align="center" type="text" name="share" id="postshare" required>
+ <input align="center" type="button" name="share" value="share" id="share" onclick="share();"/> <br/>
     <input type="radio" id="public" name="post" value="public" /> Public
     <input type="radio" id="private" name="post" value="private" /> Private
   <br/>
