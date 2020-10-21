@@ -446,8 +446,8 @@ catch(err){
   <label>Birthday:</label>
   <input align="center" type="date"  id="birthday"  /> <br/>
   <label>Your gender: </label>
-      <input type="radio" id="male" value="male" /> Male
-      <input type="radio" id="female" value="female" /> Female
+      <input type="radio" id="male" name="gender" value="male" /> Male
+      <input type="radio" id="female" name="gender" value="female" /> Female
   <br/>
  <input align="center" type="button" value="Submit" id="profile" onclick="profileinfo();"/>
   <br/>
@@ -456,8 +456,8 @@ catch(err){
    <p > PUBLISH SOME TEXT </p>
  <input align="center" type="text"  id="postshare" " />
  <input align="center" type="button" value="share" id="share" onclick="share();"/> <br/>
-    <input type="radio" id="public" value="public" /> Public
-    <input type="radio" id="private" value="private" /> Private
+    <input type="radio" id="public" name="post" value="public" /> Public
+    <input type="radio" id="private" name="post" value="private" /> Private
   <br/>
  
  <br/>
