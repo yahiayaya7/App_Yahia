@@ -95,9 +95,11 @@ alert(err.message);}
          var dd = d.getFullYear().toString()+("0" + (d.getMonth().toString())).slice(-2)+("0" + (d.getDate().toString())).slice(-2)+("0" + (d.getHours().toString())).slice(-2)+("0" + (d.getMinutes().toString())).slice(-2)+("0" + (d.getSeconds().toString())).slice(-2);
          
          
-         
+      if (tpost == null){
+      var alert = 'you must enter a text';
+      document.getElementById("turl").innerHTML=alert;}     
 
-    if (tpost.toString() !=null){
+    else {
     if (public.toString() == 'true'){
       var filenamepub='PUBLIC_'+dd;
       blockstack.putFile(filenamepub, tpost, {encrypt: false});
@@ -148,10 +150,7 @@ for (j = 0; j < listpostpriv.length; j++) {
     } 
     }
       
-    else if (tpost.toString() == null){
-      var alert = "you must enter a text";
-      document.getElementById("turl").innerHTML=alert;}
-      
+     
 
     }
          catch(err){
