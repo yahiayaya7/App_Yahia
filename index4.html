@@ -60,7 +60,7 @@ input[type=text] {
  }
  
  //******************************************************** PROFILE ******************************************************
-  function profile(){
+  async function profile(){
    var name = document.getElementById("name").value;
    var birthday = document.getElementById("birthday").value;
    var male = document.getElementById("male").value;
@@ -77,6 +77,7 @@ input[type=text] {
     var profile = name +'X'+ birthday +'X'+ gender;
     
     blockstack.putFile(nameprofileindex, profile, {encrypt: false });
+      return true
   
   }
 
