@@ -97,7 +97,7 @@ alert(err.message);}
          
          
 
-    
+    if (tpost !=null){
     if (public.toString() == 'true'){
       var filenamepub='PUBLIC_'+dd;
       blockstack.putFile(filenamepub, tpost, {encrypt: false});
@@ -145,10 +145,10 @@ for (j = 0; j < listpostpriv.length; j++) {
     blockstack.putFile(filenameprivindex, privindex, {encrypt: true });
     //document.getElementById("global").innerHTML=pubindex                       
          return true})}
-      
-      
+    } 
     }
-    
+      
+    else{document.getElementById("turl").innerHTML="you must enter a text";
       
 
     }
