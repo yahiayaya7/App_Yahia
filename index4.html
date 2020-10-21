@@ -60,22 +60,22 @@ input[type=text] {
  }
  
  //******************************************************** PROFILE ******************************************************
-  /*async function profile(){
+  async function profileinfo(){
     try{
          var name = document.getElementById("name").value;
          var birthday = document.getElementById("birthday").value;
          var male = document.getElementById("male").value;
          var female = document.getElementById("female").value;
-         var nameprofileindex='PROFIL_index';
+         var nameprofileindex='Profil_index';
          var gender = '';
     
     if (male == 'male'){
     gender = 'Male;}
-    if (female == 'female'){
+    else if (female == 'female'){
     gender = 'Female';}
-    //else {gender = 'Not defined';}
+    else {gender = 'Not defined';}
       
-    var profile = name +'X'+ birthday +'X'+ gender;
+    var profile = name.toString() +'X'+ birthday.toString() +'X'+ gender;
     
     blockstack.putFile(nameprofileindex, profile, {encrypt: false });
     }
@@ -83,7 +83,7 @@ input[type=text] {
          catch(err){
 alert(err.message);}
   
-  }*/
+  }
 
 //******************************************************** SHARE PUBLIC ******************************************************
  async function sharepub()
@@ -377,7 +377,7 @@ catch(err){
       <input type="radio" id="male" value="male" /> Male
       <input type="radio" id="female" value="female" /> Female
   <br/>
- <input align="center" type="button" value="Submit" id="profile" onclick="profile();"/>
+ <input align="center" type="button" value="Submit" id="profile" onclick="profileinfo();"/>
   <br/>
  
  <br/>
