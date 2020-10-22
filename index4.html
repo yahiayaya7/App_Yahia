@@ -43,9 +43,14 @@ input[type=text] {
  }
   
     function showid(profile) {
+       if (blockstack.isUserSignedIn()) {
+  const userData = blockstack.loadUserData()
+   showProfile(userData.profile)
+  
+   document.getElementById("showid").innerHTML =userData.username;
+ }
    var person = new blockstack.Person(profile);
-   
-   document.getElementById("showid").innerHTML =person.name();
+   //document.getElementById("showid").innerHTML =person.name();
 
  }
 
@@ -345,10 +350,10 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 124</h2>
+<h2 align="center"> welcome.... clik login to enter the application 125</h2>
  <p id="showid"> <script>showid();</script> </p> <br/>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
- <p id="state"><script>showProfile();issigin();</script> </p>
+ <p id="nom"></p>
   <p id="state"> <script>issigin();</script> </p>
  <input align="center" type="button" value="signout" id="sout" onclick="sigout();" />
  <input align="center" type="button" value="isgned" id="issigned" onclick="issigin();" />
