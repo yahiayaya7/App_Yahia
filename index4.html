@@ -298,8 +298,7 @@ for (i = 0; i < listpost.length; i++) {
 
 
           blockstack.putFile(groupindex, strgroup, {encrypt: true});
-          var showkey = 'Your group key: ' + groupkey;
-          document.getElementById("groupkey").innerHTML = showkey;
+          document.getElementById("groupadded").innerHTML = 'Group added with succes';
        }
         catch(err){
      alert(err.message);}
@@ -398,7 +397,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 137</h2>
+<h2 align="center"> welcome.... clik login to enter the application 138</h2>
  <p id="showid"> <script>showid();</script> </p> <br/>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"></p>
@@ -512,12 +511,13 @@ catch(err){
  <input align="center" type="button" value="Create group" id="creategroup" onclick="creategroup();" />
  
  <p id="groupkey"> </p>
-   <br/><br/>
+   <br/>
                  
    <p> Add a group </p> 
  <input align="center" type="text"  id="addgroupname" placeholder="Enter the group name..."/>
  <input align="center" type="text"  id="addgroupkey" placeholder="Enter the group key..."/>
  <input align="center" type="button" value="Add group" id="addgroup" onclick="addgroup();" />
+ <p id="groupadded"> </p>
    <br/><br/>
  
  </body>
