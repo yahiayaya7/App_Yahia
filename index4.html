@@ -41,18 +41,7 @@ input[type=text] {
    //document.getElementById('section-1').style.display = 'none'
    //document.getElementById('section-2').style.display = 'block'
  }
-  
-    function showid() {
-       if (blockstack.isUserSignedIn()) {
-  const userData = blockstack.loadUserData()
-   //showid(userData.profile)
-  
-   document.getElementById("showid").innerHTML =userData.username;
- }
-   var person = new blockstack.Person(userData);
-   document.getElementById("showid").innerHTML =person.name();
 
- }
 
  function issigin()
  { if (blockstack.isUserSignedIn()) { document.getElementById("state").innerHTML ='signed ok';}
@@ -71,6 +60,19 @@ input[type=text] {
  }
  }
  
+ //******************************************************** SHOW ID ******************************************************
+    function showid() {
+       if (blockstack.isUserSignedIn()) {
+  const userData = blockstack.loadUserData()
+   //showid(userData.profile)
+  
+   document.getElementById("showid").innerHTML =userData.username;
+ }
+   var person = new blockstack.Person(userData);
+   document.getElementById("showid").innerHTML =person.name();
+
+ }
+  
  //******************************************************** PROFILE ******************************************************
  async function profileinfo(){
     try{
@@ -115,7 +117,7 @@ alert(err.message);}
       
       {  var listoffilespub='';
       var filenamepubindex='PUB_index';
-  blockstack.listFiles((filename)=>{listoffilespub=listoffilespub+filename+'X';
+  await blockstack.listFiles((filename)=>{listoffilespub=listoffilespub+filename+'X';
    var strpub = listoffilespub.toString();
       var listpostpub = strpub.split('X');
       var i;
@@ -140,7 +142,7 @@ for (i = 0; i < listpostpub.length; i++) {
       
          {  var listoffilespriv='';
       var filenameprivindex='PRIV_index';
-  blockstack.listFiles((filename)=>{listoffilespriv=listoffilespriv+filename+'X';
+  await blockstack.listFiles((filename)=>{listoffilespriv=listoffilespriv+filename+'X';
    var strpriv = listoffilespriv.toString();
       var listpostpriv = strpriv.split('X');
       var j;
@@ -270,7 +272,29 @@ for (i = 0; i < listpost.length; i++) {
             var strgroup = groupindexcont.toString() + str; 
           }
 
-          
+
+          blockstack.putFile(groupindex, strgroup, {encrypt: true});
+          var showkey = 'Your group key: ' + groupkey;
+          document.getElementById("groupkey").innerHTML = showkey;
+       }
+        catch(err){
+     alert(err.message);}
+}
+  
+//******************************************************** ADD A GROUP ******************************************************
+ async function addgroup() {
+    var addgroupname=document.getElementById("addgroupname").value;
+    var addgroupkey=document.getElementById("addgroupkey").value;
+    var groupindex= 'ADD_GROUP_index';
+    try{ 
+          var groupindexcont= await blockstack.getFile(groupindex, {decrypt: true });
+          var str = addgroupname +';'+ addgroupkey + '</br>';
+          if(groupindexcont == null){
+            var strgroup = str; 
+          }
+          else{
+            var strgroup = groupindexcont.toString() + str; 
+          }
 
 
           blockstack.putFile(groupindex, strgroup, {encrypt: true});
@@ -280,6 +304,22 @@ for (i = 0; i < listpost.length; i++) {
         catch(err){
      alert(err.message);}
 }
+  
+  
+  
+//******************************************************** SHARE TO A GROUP ******************************************************
+  
+  
+  
+//******************************************************** SHARE A GROUP CONTENT ******************************************************
+  
+  
+  
+//******************************************************** FOLLOW ******************************************************
+  
+  
+  
+  
  
 //******************************************************** DELETE A POST ******************************************************
  function deletef(){
@@ -350,7 +390,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 131</h2>
+<h2 align="center"> welcome.... clik login to enter the application 132</h2>
  <p id="showid"> <script>showid();</script> </p> <br/>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"></p>
@@ -464,6 +504,12 @@ catch(err){
  <input align="center" type="button" value="Create group" id="creategroup" onclick="creategroup();" />
  
  <p id="groupkey"> </p>
+   <br/><br/>
+                 
+   <p> Add a group </p> 
+ <input align="center" type="text"  id="addgroupname" placeholder="Enter the group name..."/>
+ <input align="center" type="text"  id="addgroupkey" placeholder="Enter the group key..."/>
+ <input align="center" type="button" value="Add group" id="addgroup" onclick="addgroup();" />
    <br/><br/>
  
  </body>
