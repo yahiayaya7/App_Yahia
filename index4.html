@@ -112,12 +112,12 @@ alert(err.message);}
 
     if (public.toString() == 'true'){
       var filenamepub='PUBLIC_'+dd;
-      blockstack.putFile(filenamepub, tpost, {encrypt: false});
+      await blockstack.putFile(filenamepub, tpost, {encrypt: false});
       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepub, {encrypt: false});
       
       {  var listoffilespub='';
       var filenamepubindex='PUB_index';
-  await blockstack.listFiles((filename)=>{listoffilespub=listoffilespub+filename+'X';
+  blockstack.listFiles((filename)=>{listoffilespub=listoffilespub+filename+'X';
    var strpub = listoffilespub.toString();
       var listpostpub = strpub.split('X');
       var i;
@@ -137,12 +137,12 @@ for (i = 0; i < listpostpub.length; i++) {
       
     else if (private.toString() == 'true'){
       var filenamepriv='PRIVATE_'+dd;
-      blockstack.putFile(filenamepriv, tpost, {encrypt: true});
+      await blockstack.putFile(filenamepriv, tpost, {encrypt: true});
       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepriv, {encrypt: true});
       
          {  var listoffilespriv='';
       var filenameprivindex='PRIV_index';
-  await blockstack.listFiles((filename)=>{listoffilespriv=listoffilespriv+filename+'X';
+  blockstack.listFiles((filename)=>{listoffilespriv=listoffilespriv+filename+'X';
    var strpriv = listoffilespriv.toString();
       var listpostpriv = strpriv.split('X');
       var j;
@@ -390,7 +390,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 132</h2>
+<h2 align="center"> welcome.... clik login to enter the application 133</h2>
  <p id="showid"> <script>showid();</script> </p> <br/>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"></p>
