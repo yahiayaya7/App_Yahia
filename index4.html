@@ -112,7 +112,7 @@ alert(err.message);}
 
     if (public.toString() == 'true'){
       var filenamepub='PUBLIC_'+dd;
-      await blockstack.putFile(filenamepub, tpost, {encrypt: false});
+      blockstack.putFile(filenamepub, tpost, {encrypt: false});
       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepub, {encrypt: false});
       
       {  var listoffilespub='';
@@ -129,7 +129,7 @@ for (i = 0; i < listpostpub.length; i++) {
           }
 }   
     var pubindex = str1 + filenamepub; 
-    blockstack.putFile(filenamepubindex, pubindex, {encrypt: false });
+    await blockstack.putFile(filenamepubindex, pubindex, {encrypt: false });
     //document.getElementById("global").innerHTML=pubindex                       
          return true})}
      
@@ -137,7 +137,7 @@ for (i = 0; i < listpostpub.length; i++) {
       
     else if (private.toString() == 'true'){
       var filenamepriv='PRIVATE_'+dd;
-      await blockstack.putFile(filenamepriv, tpost, {encrypt: true});
+      blockstack.putFile(filenamepriv, tpost, {encrypt: true});
       document.getElementById("turl").innerHTML=await blockstack.getFileUrl(filenamepriv, {encrypt: true});
       
          {  var listoffilespriv='';
@@ -154,7 +154,7 @@ for (j = 0; j < listpostpriv.length; j++) {
           }
 }   
     var privindex = str2 + filenamepriv; 
-    blockstack.putFile(filenameprivindex, privindex, {encrypt: true });
+    await blockstack.putFile(filenameprivindex, privindex, {encrypt: true });
     //document.getElementById("global").innerHTML=pubindex                       
          return true})}
     } 
@@ -390,7 +390,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 133</h2>
+<h2 align="center"> welcome.... clik login to enter the application 134</h2>
  <p id="showid"> <script>showid();</script> </p> <br/>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"></p>
