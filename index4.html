@@ -41,6 +41,13 @@ input[type=text] {
    //document.getElementById('section-1').style.display = 'none'
    //document.getElementById('section-2').style.display = 'block'
  }
+  
+    function showid() {
+   var person = new blockstack.Person();
+   
+   document.getElementById("showid").innerHTML =person.name();
+
+ }
 
  function issigin()
  { if (blockstack.isUserSignedIn()) { document.getElementById("state").innerHTML ='signed ok';}
@@ -338,7 +345,8 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 119</h2>
+<h2 align="center"> welcome.... clik login to enter the application 120</h2>
+ <p id="showid"> <script>showid();</script> </p> <br/>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"> </p>
   <p id="state"> <script>issigin();</script> </p>
