@@ -45,7 +45,7 @@ input[type=text] {
     function showid(profile) {
        if (blockstack.isUserSignedIn()) {
   const userData = blockstack.loadUserData()
-   showProfile(userData.profile)
+   showid(userData.profile)
   
    document.getElementById("showid").innerHTML =userData.username;
  }
@@ -350,7 +350,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 125</h2>
+<h2 align="center"> welcome.... clik login to enter the application 126</h2>
  <p id="showid"> <script>showid();</script> </p> <br/>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"></p>
