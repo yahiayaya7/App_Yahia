@@ -316,15 +316,15 @@ for (i = 0; i < listpost.length; i++) {
          var groupindexcont= await blockstack.getFile('GROUP_index', {decrypt: true });
          var j;
          groupindexcont = groupindexcont.toString();
-         var listgroup = groupindexcont.split('</br>');
+         var listgroup = groupindexcont.slice(0,-1).split('</br>');
       document.getElementById("test3").innerHTML = listgroup;
          
          
       for(j=0; j  < listgroup.length; j++){
-        var key = (listgroup[j]).slice(-10);
+        var key = listgroup[j].slice(-10);
         document.getElementById("test1").innerHTML = key;
-        document.getElementById("test2").innerHTML = (listgroup[j]).slice(-10);
-      if(gnameshare == (listgroup[j]).slice(-12) ){
+        document.getElementById("test2").innerHTML = listgroup[j].slice(-10);
+      if(gnameshare == listgroup[j].slice(0,-12) ){
         
        
               var filename='GROUP_'+dd;
@@ -485,7 +485,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 147</h2>
+<h2 align="center"> welcome.... clik login to enter the application 148</h2>
  <p id="showid"> <script>showid();</script> </p> <br/>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"></p>
