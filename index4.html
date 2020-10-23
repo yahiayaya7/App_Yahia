@@ -316,7 +316,7 @@ for (i = 0; i < listpost.length; i++) {
          var groupindexcont= await blockstack.getFile('GROUP_index', {decrypt: true });
          var j;
          //var groupindexcontc = groupindexcont.toString();
-         var groupindexconts = groupindexcont.split(/\n/);
+         var groupindexconts = groupindexcont.split('</br>');
          var listgroup = groupindexconts.split('XX');
          
       for(j=0; j  < groupindexconts.length; j++){
@@ -481,7 +481,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 141</h2>
+<h2 align="center"> welcome.... clik login to enter the application 142</h2>
  <p id="showid"> <script>showid();</script> </p> <br/>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"></p>
