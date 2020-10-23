@@ -317,10 +317,13 @@ for (i = 0; i < listpost.length; i++) {
          var j;
          groupindexcont = groupindexcont.toString();
          var listgroup = groupindexcont.split(/\n/);
+      document.getElementById("test3").innerHTML = listgroup;
          
          
       for(j=0; j  < listgroup.length; j++){
         var key = listgroup[j].slice(-10);
+        document.getElementById("test1").innerHTML = key;
+        document.getElementById("test2").innerHTML = listgroup[j];
       if(gnameshare == (listgroup[j] - ('XX'+key)) ){
         
        
@@ -482,7 +485,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 143</h2>
+<h2 align="center"> welcome.... clik login to enter the application 144</h2>
  <p id="showid"> <script>showid();</script> </p> <br/>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"></p>
@@ -611,6 +614,9 @@ catch(err){
  <input align="center" type="text" name="gshare" id="gpostshare" placeholder="Text to share..." required>
  <input align="center" type="button" name="share" value="share" id="share" onclick="sharegroup();"/>
   <p id="groupNotExist"> </p>
+                       <p id="test1"> </p>
+                                            <p id="test2"> </p>
+                                                                 <p id="test3"> </p>
   <br/>
                                                                 
   <p > URL of the added post </p>   
