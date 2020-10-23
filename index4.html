@@ -321,10 +321,10 @@ for (i = 0; i < listpost.length; i++) {
          
          
       for(j=0; j  < listgroup.length; j++){
-        var key = listgroup[j].slice(-20);
+        var key = (listgroup[j]).slice(-10);
         document.getElementById("test1").innerHTML = key;
         document.getElementById("test2").innerHTML = listgroup[j];
-      if(gnameshare == (listgroup[j] - ('XX'+key)) ){
+      if(gnameshare == (listgroup[j]).slice(-12) ){
         
        
               var filename='GROUP_'+dd;
@@ -485,7 +485,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 145</h2>
+<h2 align="center"> welcome.... clik login to enter the application 146</h2>
  <p id="showid"> <script>showid();</script> </p> <br/>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"></p>
