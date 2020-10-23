@@ -264,7 +264,7 @@ for (i = 0; i < listpost.length; i++) {
     var groupindex= 'GROUP_index';
     try{ 
           var groupindexcont= await blockstack.getFile(groupindex, {decrypt: true });
-          var str = groupname +';'+ groupkey + '</br>';
+          var str = groupname +'XX'+ groupkey + '</br>';
           if(groupindexcont == null){
             var strgroup = str; 
           }
@@ -288,7 +288,7 @@ for (i = 0; i < listpost.length; i++) {
     var groupindex= 'ADD_GROUP_index';
     try{ 
           var groupindexcont= await blockstack.getFile(groupindex, {decrypt: true });
-          var str = addgroupname +';'+ addgroupkey + '</br>';
+          var str = addgroupname +'XX'+ addgroupkey + '</br>';
           if(groupindexcont == null){
             var strgroup = str; 
           }
@@ -317,7 +317,7 @@ for (i = 0; i < listpost.length; i++) {
          var j;
          //var groupindexcontc = groupindexcont.toString();
          var groupindexconts = groupindexcont.split(/\n/);
-         var listgroup = groupindexconts.split(";");
+         var listgroup = groupindexconts.split('XX');
          
       for(j=0; j  < groupindexconts.length; j++){
       if(gnameshare == listgroup[j][0]){
@@ -369,7 +369,7 @@ alert(err.message);}
          var j;
          groupindexcont = groupindexcont.toString();
          groupindexcont = groupindexcont.split(/\n/);
-         var listgroup = groupindexcont.split(';');
+         var listgroup = groupindexcont.split('XX');
          
       for(j=0; j  < groupindexcont.length; j++){
       if(gnameshow == listgroup[j][0]){
@@ -481,7 +481,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 140</h2>
+<h2 align="center"> welcome.... clik login to enter the application 141</h2>
  <p id="showid"> <script>showid();</script> </p> <br/>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"></p>
