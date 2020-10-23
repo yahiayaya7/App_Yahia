@@ -307,11 +307,95 @@ for (i = 0; i < listpost.length; i++) {
   
   
 //******************************************************** SHARE TO A GROUP ******************************************************
+   async function sharegroup(){
+    try{ 
+         var tpost=document.getElementById("gpostshare").value;
+         var gnameshare=document.getElementById("gnameshare").value;
+         var d=new Date;
+         var dd = d.getFullYear().toString()+("0" + (d.getMonth().toString())).slice(-2)+("0" + (d.getDate().toString())).slice(-2)+("0" + (d.getHours().toString())).slice(-2)+("0" + (d.getMinutes().toString())).slice(-2)+("0" + (d.getSeconds().toString())).slice(-2);
+         var groupindexcont= await blockstack.getFile('GROUP_index', {decrypt: true });
+         var j;
+         groupindexcont = groupindexcont.toString();
+         groupindexcont = groupindexcont.split(/\n/);
+         var listgroup = groupindexcont.split(';');
+         
+      for(j=0; j  < groupindexcont.length; j++){
+      if(gnameshare == listgroup[j][0]){
+        
+       
+              var filename='GROUP_'+dd;
+              blockstack.putFile(filename, tpost, {encrypt: listgroup[j][1] });
+              document.getElementById("gurl").innerHTML=await blockstack.getFileUrl(filename, {encrypt: listgroup[j][1]}); //LIEN TOMPORAIRE
+
+              {  var listoffiles='';
+              var filenameindex='GROUP_index_C';
+          blockstack.listFiles((filename)=>{listoffiles=listoffiles+filename+'X';
+           var strpub = listoffiles.toString();
+              var listpost = str.split('X');
+              var i;
+              var str1='';
+        for (i = 0; i < listpost.length; i++) {
+          var post = listpost[i];
+                if (post[3] =='L') {
+                  str1 = str1 + listpost[i] + 'X';
+                  }
+        }   
+            var pubindex = str1 + filenamepub; 
+             setTimeout(blockstack.putFile(filenameindex, pubindex, {encrypt: listgroup[j][1] }) , 30);
+            //document.getElementById("global").innerHTML=pubindex                       
+                 return true})}
+     
+        
+      
+      }
+      else {document.getElementById("groupNotExist").innerHTML = 'Group not Exist..!';}
+      }
+        
+    
+
+    }
+         catch(err){
+alert(err.message);}
   
+  }
   
   
 //******************************************************** SHOW A GROUP CONTENT ******************************************************
-  
+     async function groupcontent(){ 
+     
+  try{var p='GROUP_index_C';
+         var gnameshow=document.getElementById("gnameshow").value;
+         var groupindexcont= await blockstack.getFile('GROUP_index', {decrypt: true });
+         var j;
+         groupindexcont = groupindexcont.toString();
+         groupindexcont = groupindexcont.split(/\n/);
+         var listgroup = groupindexcont.split(';');
+         
+      for(j=0; j  < groupindexcont.length; j++){
+      if(gnameshow == listgroup[j][0]){
+        
+          var t= await blockstack.getFile(p, {decrypt: listgroup[j][1] });
+          var listpost = t.split('X');
+          var i;
+          var str='';
+              for (i = 0; i < listpost.length; i++) {
+                var x= await blockstack.getFile(listpost[i], {decrypt: listgroup[j][1] });
+                if(x==null){str=str;}
+                else{str += listpost[i] +"==>"+ x + "<br>";}
+              }
+                 document.getElementById("groupcontent").innerHTML=str;
+      
+      }
+      else {document.getElementById("groupNotExist2").innerHTML = 'Group not Exist..!';}
+      }
+    
+    
+    
+
+        }
+    catch(err){
+     alert(err.message);}
+     }
   
   
 //******************************************************** MY GROUPS ******************************************************
@@ -397,7 +481,7 @@ catch(err){
 </head>
 <body>
 
-<h2 align="center"> welcome.... clik login to enter the application 138</h2>
+<h2 align="center"> welcome.... clik login to enter the application 139</h2>
  <p id="showid"> <script>showid();</script> </p> <br/>
 <input align="center" type="button" value="login" id="sig" onclick="signin();" />
  <p id="nom"></p>
@@ -519,6 +603,26 @@ catch(err){
  <input align="center" type="button" value="Add group" id="addgroup" onclick="addgroup();" />
  <p id="groupadded"> </p>
    <br/><br/>
+                   
+     <br/>
+   <p > PUBLISH SOME TEXT TO A GROUP </p>
+ <input align="center" type="text" name="gshare" id="gnameshare" placeholder="Enter the group name..." required>
+ <input align="center" type="text" name="gshare" id="gpostshare" placeholder="Text to share..." required>
+ <input align="center" type="button" name="share" value="share" id="share" onclick="sharegroup();"/>
+  <p id="groupNotExist"> </p>
+  <br/>
+                                                                
+  <p > URL of the added post </p>   
+   <p id="gurl"> URL </p>  
+   <br/><br/>
+               
+    <p > Show a group content </p> 
+  <input align="center" type="text" name="gshow" id="gnameshow" placeholder="Enter the group name..." required>
+  <input align="center" type="button" value="show public content" onclick="groupcontent();" />
+  <p id="groupcontent"> ... </p>
+  <p id="groupNotExist2"> </p>
+   <br/><br/>
+               
  
  </body>
 </html>
