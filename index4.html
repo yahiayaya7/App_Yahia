@@ -316,16 +316,15 @@ for (i = 0; i < listpost.length; i++) {
          var groupindexcont= await blockstack.getFile('GROUP_index', {decrypt: true });
          var j;
          groupindexcont = groupindexcont.toString();
-         groupindexcont = groupindexcont.slice(0,-1).split('</br>');
-         var listgroup = groupindexcont.split('XX');
+         var listgroup = groupindexcont.slice(0,-1).split('</br>');
       document.getElementById("test3").innerHTML = listgroup;
          
          
-      for(j=0; j  < groupindexcont.length; j++){
-        var key = listgroup[j][1];
+      for(j=0; j  < listgroup.length; j++){
+        var key = listgroup[j].slice(-10);
         document.getElementById("test1").innerHTML = key;
-        document.getElementById("test2").innerHTML = listgroup[j][0];
-      if(gnameshare == listgroup[j][0] ){
+        document.getElementById("test2").innerHTML = listgroup[j].slice(-10);
+      if(gnameshare == listgroup[j].slice(0,-12) ){
         
        
               var filename='GROUP_'+dd;
@@ -347,7 +346,6 @@ for (i = 0; i < listpost.length; i++) {
         }   
             var pubindex = str1 + filenamepub; 
              setTimeout(blockstack.putFile(filenameindex, pubindex, {encrypt: key }) , 30);
-             document.getElementById("groupNotExist").innerHTML = 'Shared with succes';
             //document.getElementById("global").innerHTML=pubindex                       
                  return true})}
      
@@ -372,18 +370,13 @@ alert(err.message);}
   try{var p='GROUP_index_C';
          var gnameshow=document.getElementById("gnameshow").value;
          var groupindexcont= await blockstack.getFile('GROUP_index', {decrypt: true });
-         var j;
          groupindexcont = groupindexcont.toString();
-         groupindexcont = groupindexcont.slice(0,-1).split('</br>');
-         var listgroup = groupindexcont.split('XX');
-      document.getElementById("test3").innerHTML = listgroup;
+         var listgroup = groupindexcont.split(/\n/);
          
          
-      for(j=0; j  < groupindexcont.length; j++){
-        var key = listgroup[j][1];
-        document.getElementById("test1").innerHTML = key;
-        document.getElementById("test2").innerHTML = listgroup[j][0];
-      if(gnameshow == listgroup[j][0] ){
+      for(j=0; j  < listgroup.length; j++){
+        var key = listgroup[j].slice(-10);
+      if(gnameshow == (listgroup[j] - ('XX'+key)) ){
         
           var t= await blockstack.getFile(p, {decrypt: key });
           var listpost = t.split('X');
